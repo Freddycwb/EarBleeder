@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     {
         _input = GetComponent<IInput>();
         _rb = GetComponent<Rigidbody>();
+        //teste
     }
 
     private void FixedUpdate()
