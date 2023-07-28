@@ -13,6 +13,7 @@ public class PlayerInput : MonoBehaviour, IInput
     public void SetID(int value)
     {
         _id = value;
+        //test
     }
 
     public Vector2 direction
