@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 7
   maxAccel: 0.5
+  rotateSpeed: 10
 --- !u!54 &6654887513521930298
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float maxSpeed;
     [SerializeField] private float maxAccel;
+    [SerializeField] private float rotateSpeed;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         HorizontalMove();
+        MoveRotate();
     }
 
     void HorizontalMove()
@@ -29,5 +31,10 @@ public class Player : MonoBehaviour
         neededAccel -= Vector3.up * neededAccel.y;
         neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
         _rb.AddForce(neededAccel, ForceMode.Impulse);
+    }
+
+    void MoveRotate()
+    {
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(new Vector3(_input.direction.x, 0, _input.direction.y)), Time.deltaTime * rotateSpeed);
     }
 }
