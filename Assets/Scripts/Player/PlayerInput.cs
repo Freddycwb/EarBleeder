@@ -232,6 +232,90 @@ public class PlayerInput : MonoBehaviour, IInput
         }
     }
 
+    public bool fireButtonDown
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.Space);
+            }
+            else
+            {
+                if (Gamepad.all.Count >= _id)
+                {
+                    click = Gamepad.all[_id].buttonWest.wasPressedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool fireButton
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.Space);
+            }
+            else
+            {
+                if (Gamepad.all.Count >= _id)
+                {
+                    click = Gamepad.all[_id].buttonWest.isPressed;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool fireButtonUp
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyUp(KeyCode.Space);
+            }
+            else
+            {
+                if (Gamepad.all.Count >= _id)
+                {
+                    click = Gamepad.all[_id].buttonWest.wasReleasedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
     public void SetCanControl(bool state)
     {
         canControl = state;
