@@ -154,6 +154,17 @@ public class PlayerSlot : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void Disconnected()
+    {
+        if (_input != null)
+        {
+            Destroy(_input);
+            _input = null;
+            Destroy(_currentPlayer);
+        }
+        enabled = false;
+    }
+
     private void OnDisable()
     {
         _tmp.text = "Connect";

@@ -177,15 +177,13 @@ public class MatchController : MonoBehaviour
     private void PlayerDesconnected(int i)
     {
         controlsNumber.Value--;
-        Debug.Log(Mathf.Clamp(controlsNumber.Value - 1, 1, playerSlots.Length - 1));
-        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 1, playerSlots.Length - 1)].enabled = false;
+        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 1, playerSlots.Length - 1)].Disconnected();
         foreach (PlayerInput p in controlsNotPlaying)
         {
             if (p.GetID() + 1 == i)
             {
                 Destroy(p);
                 controlsNotPlaying.Remove(p);
-                Debug.Log("Desconectou");
                 return;
             }
         }

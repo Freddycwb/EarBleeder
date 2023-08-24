@@ -28,7 +28,7 @@ public class PlayerInput : MonoBehaviour, IInput
             if (_id != -1)
             {
                 Vector2 gamepadMove = Vector2.zero;
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     StickControl stick = Gamepad.all[_id].leftStick;
                     gamepadMove = new Vector2(stick.right.value - stick.left.value, stick.up.value - stick.down.value);
@@ -42,6 +42,7 @@ public class PlayerInput : MonoBehaviour, IInput
             else
             {
                 int x = 0;
+
                 x += Input.GetKey(KeyCode.A) ? -1 : 0;
                 x += Input.GetKey(KeyCode.D) ? 1 : 0;
 
@@ -75,7 +76,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonSouth.wasPressedThisFrame;
                 }
@@ -103,7 +104,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonSouth.isPressed;
                 }
@@ -131,7 +132,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonSouth.wasReleasedThisFrame;
                 }
@@ -159,7 +160,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonEast.wasPressedThisFrame;
                 }
@@ -187,7 +188,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonEast.isPressed;
                 }
@@ -215,7 +216,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonEast.wasReleasedThisFrame;
                 }
@@ -243,7 +244,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonWest.wasPressedThisFrame;
                 }
@@ -271,7 +272,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonWest.isPressed;
                 }
@@ -299,7 +300,7 @@ public class PlayerInput : MonoBehaviour, IInput
             }
             else
             {
-                if (Gamepad.all.Count >= _id)
+                if (_id <= Gamepad.all.Count - 1)
                 {
                     click = Gamepad.all[_id].buttonWest.wasReleasedThisFrame;
                 }
