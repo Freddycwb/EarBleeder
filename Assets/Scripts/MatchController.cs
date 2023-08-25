@@ -28,7 +28,7 @@ public class MatchController : MonoBehaviour
     void Start()
     {
         SetStartVariables();
-        for (int i = 0; i < NumberOfJoysticks(); i++)
+        for (int i = 0; i < Gamepad.all.Count; i++)
         {
             PlayerConnected(i);
         }
@@ -73,16 +73,16 @@ public class MatchController : MonoBehaviour
     private void ConnectAndDesconnect()
     {
         // have this + 1 and - 1 in this function because it have to count and ignore the keyboard input
-        if (controlsNumber.Value < NumberOfJoysticks() + 1)
+        if (controlsNumber.Value < Gamepad.all.Count + 1)
         {
-            for (int i = controlsNumber.Value; i < NumberOfJoysticks() + 1; i++)
+            for (int i = controlsNumber.Value; i < Gamepad.all.Count + 1; i++)
             {
                 PlayerConnected(i - 1);
             }
         }
-        else if (controlsNumber.Value > NumberOfJoysticks() + 1)
+        else if (controlsNumber.Value > Gamepad.all.Count + 1)
         {
-            for (int i = controlsNumber.Value; i > NumberOfJoysticks() + 1; i--)
+            for (int i = controlsNumber.Value; i > Gamepad.all.Count + 1; i--)
             {
                 PlayerDesconnected(i - 1);
             }
@@ -152,7 +152,7 @@ public class MatchController : MonoBehaviour
 
     private void PlayerJoin(int i)
     {
-        playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].GetID());
+        playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].GetID(), "Set input on player join on player slot ");
         playersNumber.Value++;
         Destroy(controlsNotPlaying[i]);
         controlsNotPlaying.RemoveAt(i);
@@ -177,16 +177,19 @@ public class MatchController : MonoBehaviour
     private void PlayerDesconnected(int i)
     {
         controlsNumber.Value--;
-        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 1, playerSlots.Length - 1)].Disconnected();
+        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1)].Disconnected();
         foreach (PlayerInput p in controlsNotPlaying)
         {
             if (p.GetID() + 1 == i)
             {
                 Destroy(p);
                 controlsNotPlaying.Remove(p);
+                ArrangeSlots();
                 return;
             }
         }
+        ArrangeSlots();
+        playersNumber.Value--;
     }
 
     private void ArrangeSlots()
@@ -201,14 +204,18 @@ public class MatchController : MonoBehaviour
                 inputsIDs.Add(playerSlots[i].GetInputID());
                 skins.Add(playerSlots[i].GetSkin());
                 readys.Add(playerSlots[i].GetReady());
-                playerSlots[i].Leave();
+                playerSlots[i].Disconnected();
             }
+        }
+        for (int i = 0; i < controlsNumber.Value; i++)
+        {
+            playerSlots[i].enabled = true;
         }
         if (inputsIDs.Count > 0)
         {
-            for (int i = 0; i < controlsNumber.Value - 1; i++)
+            for (int i = 0; i < inputsIDs.Count; i++)
             {
-                playerSlots[i].SetInput(inputsIDs[0]);
+                playerSlots[i].SetInput(inputsIDs[0], "Set input on arrange slots");
                 playerSlots[i].SetSkin(skins[0]);
                 playerSlots[i].SetReady(readys[0]);
                 inputsIDs.RemoveAt(0);

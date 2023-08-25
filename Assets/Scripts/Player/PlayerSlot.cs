@@ -9,7 +9,7 @@ public class PlayerSlot : MonoBehaviour
 {
     [SerializeField] private int playerSlotID;
     private bool _ready;
-    private TextMeshPro _tmp;
+    [SerializeField] private TextMeshPro tmp;
     private PlayerInput _input;
     [SerializeField] private GameObject player;
     private GameObject _currentPlayer;
@@ -22,8 +22,7 @@ public class PlayerSlot : MonoBehaviour
 
     private void OnEnable()
     {
-        _tmp = GetComponentInChildren<TextMeshPro>();
-        _tmp.text = "Press X to join";
+        tmp.text = "Press X to join";
     }
 
     public int GetInputID()
@@ -36,15 +35,16 @@ public class PlayerSlot : MonoBehaviour
         return id;
     }
 
-    public void SetInput(int id)
+    public void SetInput(int id, string debug)
     {
+        enabled = true;
         _currentPlayer = Instantiate(player, transform.position, transform.rotation);
         _currentPlayer.transform.eulerAngles = new Vector3(0,180,0);
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
         _currentPlayer.GetComponent<PlayerInput>().SetID(id);
         _currentSkin = playerSlotID;
         _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinsUnselected.Value[_currentSkin]);
-        _tmp.text = "Press X if you are ready";
+        tmp.text = "Press X if you are ready";
         StartCoroutine("SetInputAfterTime", id);
     }
 
@@ -57,6 +57,7 @@ public class PlayerSlot : MonoBehaviour
         yield return new WaitForEndOfFrame();
         gameObject.AddComponent<PlayerInput>().SetID(id);
         _input = GetComponent<PlayerInput>();
+        Debug.Log("colocou input " + enabled);
     }
 
     public IInput GetInput()
@@ -92,7 +93,7 @@ public class PlayerSlot : MonoBehaviour
             if (_input.aButtonDown)
             {
                 _ready = true;
-                _tmp.text = "Ready!!";
+                tmp.text = "Ready!!";
             }
             ChangeSkin();
         }
@@ -125,7 +126,7 @@ public class PlayerSlot : MonoBehaviour
         if (_input != null && _ready && _input.bButtonUp)
         {
             _ready = false;
-            _tmp.text = "Press X if you are ready";
+            tmp.text = "Press X if you are ready";
         }
         if (_input != null && !_ready && _input.bButtonDown)
         {
@@ -141,8 +142,8 @@ public class PlayerSlot : MonoBehaviour
         Destroy(_input);
         _input = null;
         Destroy(_currentPlayer);
-        _tmp = GetComponentInChildren<TextMeshPro>();
-        _tmp.text = "Press X to join";
+        tmp = GetComponentInChildren<TextMeshPro>();
+        tmp.text = "Press X to join";
     }
 
     public void FreePlayer()
@@ -156,6 +157,7 @@ public class PlayerSlot : MonoBehaviour
 
     public void Disconnected()
     {
+        Debug.Log("desconectou");
         if (_input != null)
         {
             Destroy(_input);
@@ -167,6 +169,6 @@ public class PlayerSlot : MonoBehaviour
 
     private void OnDisable()
     {
-        _tmp.text = "Connect";
+        tmp.text = "Connect";
     }
 }
