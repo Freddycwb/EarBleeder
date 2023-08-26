@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5471455931787460736}
   - component: {fileID: 5471455931787460743}
   - component: {fileID: 2654994658929561692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ MonoBehaviour:
       m_Calls: []
   instantiateOnSubAction: []
   destroyOnDisable: 0
-  timeToAction: 1
+  timeToAction: 3
   desableAfterTimer: 1
 --- !u!1 &5471455932413849639
 GameObject:
