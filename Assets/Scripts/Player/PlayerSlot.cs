@@ -146,9 +146,14 @@ public class PlayerSlot : MonoBehaviour
         tmp.text = "Press X to join";
     }
 
+    public void SetPlayerPosition(Vector3 pos)
+    {
+        _currentPlayer.transform.position = pos;
+    }
+
     public void FreePlayer()
     {
-        if(_currentPlayer != null)
+        if (_currentPlayer != null)
         {
             _currentPlayer.GetComponent<PlayerInput>().SetCanControl(true);
         }
@@ -157,7 +162,6 @@ public class PlayerSlot : MonoBehaviour
 
     public void Disconnected()
     {
-        Debug.Log("desconectou");
         if (_input != null)
         {
             Destroy(_input);

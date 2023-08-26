@@ -11,6 +11,10 @@ public class MatchController : MonoBehaviour
 
     private List<PlayerInput> controlsNotPlaying = new List<PlayerInput>();
     [SerializeField] private PlayerSlot[] playerSlots;
+    private List<PlayerSlot> playerSlotsInGame = new List<PlayerSlot>();
+
+    [SerializeField] private GameObject currentStage;
+    [SerializeField] private GameObjectListVariable stages;
 
     private void Awake()
     {
@@ -111,18 +115,8 @@ public class MatchController : MonoBehaviour
         }
         if (everyoneReady)
         {
-            foreach (PlayerSlot slot in playerSlots)
-            {
-                if (slot.enabled)
-                {
-                    slot.FreePlayer();
-                }
-                else
-                {
-                    slot.gameObject.SetActive(false);
-                }
-            }
             StopAllCoroutines();
+            StartMatch();
         }
         else
         {
@@ -222,6 +216,45 @@ public class MatchController : MonoBehaviour
                 skins.RemoveAt(0);
                 readys.RemoveAt(0);
             }
+        }
+    }
+
+    private void StartMatch()
+    {
+        foreach (PlayerSlot slot in playerSlots)
+        {
+            if (slot.enabled && slot.GetInput() != null)
+            {
+                playerSlotsInGame.Add(slot);
+            }
+            else
+            {
+                slot.gameObject.SetActive(false);
+            }
+        }
+        StartCoroutine("StartRound");
+    }
+
+    private IEnumerator StartRound()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SetStage();
+        yield return new WaitForSeconds(1);
+        foreach (PlayerSlot slot in playerSlotsInGame)
+        {
+            slot.FreePlayer();
+        }
+    }
+
+    private void SetStage()
+    {
+        Destroy(currentStage);
+        currentStage = Instantiate(stages.Value[Random.Range(1, stages.Value.Count)]);
+        int i = 0;
+        foreach (PlayerSlot slot in playerSlotsInGame)
+        {
+            slot.SetPlayerPosition(currentStage.transform.GetChild(0).GetChild(i).position);
+            i++;
         }
     }
 
