@@ -6,6 +6,12 @@ using UnityEngine.InputSystem;
 
 public class MatchController : MonoBehaviour
 {
+    [SerializeField] private GameEvent matchStart;
+    [SerializeField] private GameEvent matchEnd;
+    [SerializeField] private GameEvent roundSetted;
+    [SerializeField] private GameEvent roundStart;
+    [SerializeField] private GameEvent roundEnd;
+
     [SerializeField] private IntVariable controlsNumber;
     [SerializeField] private IntVariable playersNumber;
 
@@ -232,6 +238,7 @@ public class MatchController : MonoBehaviour
                 slot.gameObject.SetActive(false);
             }
         }
+        matchStart.Raise();
         StartCoroutine("StartRound");
     }
 
@@ -239,11 +246,13 @@ public class MatchController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SetStage();
+        roundSetted.Raise();
         yield return new WaitForSeconds(1);
         foreach (PlayerSlot slot in playerSlotsInGame)
         {
             slot.FreePlayer();
         }
+        roundStart.Raise();
     }
 
     private void SetStage()
