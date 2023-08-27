@@ -12,6 +12,10 @@ public class MatchController : MonoBehaviour
     [SerializeField] private GameEvent roundStart;
     [SerializeField] private GameEvent roundEnd;
 
+    [SerializeField] private IntVariable lastIdScored;
+    [SerializeField] private IntListVariable playerScores;
+    [SerializeField] private int scoreToWin;
+
     [SerializeField] private IntVariable controlsNumber;
     [SerializeField] private IntVariable playersNumber;
 
@@ -227,11 +231,15 @@ public class MatchController : MonoBehaviour
 
     private void StartMatch()
     {
+        playerSlotsInGame.Clear();
+        playerScores.Value.Clear();
+
         foreach (PlayerSlot slot in playerSlots)
         {
             if (slot.enabled && slot.GetInput() != null)
             {
                 playerSlotsInGame.Add(slot);
+                playerScores.Value.Add(0);
             }
             else
             {
@@ -253,6 +261,78 @@ public class MatchController : MonoBehaviour
             slot.FreePlayer();
         }
         roundStart.Raise();
+    }
+
+    public void Death()
+    {
+        SetScores();
+        CheckIsMatchOver();
+    }
+
+    private void SetScores()
+    {
+        if (lastIdScored.Value == -2) return;
+        for (int i = 0; i < playerSlotsInGame.Count; i++)
+        {
+            if (playerSlotsInGame[i].GetComponent<PlayerInput>().GetID() == lastIdScored.Value)
+            {
+                playerScores.Value[i]++;
+                lastIdScored.Value = -2;
+            }
+        }
+    }
+
+    private void CheckIsMatchOver()
+    {
+        bool over = false;
+
+        foreach (int score in playerScores.Value)
+        {
+            if (score >= scoreToWin)
+            {
+                FinishMatch();
+            }
+        }
+
+        if (!over)
+        {
+            CheckIsRoundOver();
+        }
+    }
+
+    private void CheckIsRoundOver()
+    {
+        int playersAlive = 0;
+        foreach (PlayerSlot slot in playerSlotsInGame)
+        {
+            if (slot.IsPlayerAlive())
+            {
+                playersAlive++;
+            }
+        }
+        if (playersAlive <= 1)
+        {
+            FinishRound();
+        }
+    }
+
+    public void FinishRound()
+    {
+        roundEnd.Raise();
+        StartCoroutine("StartRound");
+    }
+
+    public void FinishMatch()
+    {
+        Destroy(currentStage);
+        currentStage = Instantiate(stages.Value[0]);
+        foreach (PlayerSlot slot in playerSlots)
+        {
+            slot.gameObject.SetActive(true);
+            slot.SetPlayerPosition(slot.transform.position);
+            slot.SetReady(false);
+        }
+        StartCoroutine("CheckReadyAndNewJoystick");
     }
 
     private void SetStage()

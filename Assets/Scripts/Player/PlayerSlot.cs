@@ -16,6 +16,7 @@ public class PlayerSlot : MonoBehaviour
     [SerializeField] private GameObjectListVariable skinsUnselected;
     private int _currentSkin;
     private bool _changingSkin;
+    
 
     public Action<int> leave;
 
@@ -73,6 +74,11 @@ public class PlayerSlot : MonoBehaviour
     public bool GetReady()
     {
         return _ready;
+    }
+
+    public bool IsPlayerAlive()
+    {
+        return _currentPlayer != null && _currentPlayer.activeSelf;
     }
 
     public void SetSkin(int skin)
@@ -148,6 +154,9 @@ public class PlayerSlot : MonoBehaviour
 
     public void SetPlayerPosition(Vector3 pos)
     {
+        if (_currentPlayer == null) return;
+        _currentPlayer.SetActive(true);
+        _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
         _currentPlayer.transform.position = pos;
     }
 

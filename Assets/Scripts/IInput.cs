@@ -15,4 +15,6 @@ public interface IInput
     bool fireButtonDown { get; }
     bool fireButton { get; }
     bool fireButtonUp { get; }
+
+    bool escapeButtonDown { get; }
 }

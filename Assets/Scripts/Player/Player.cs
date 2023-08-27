@@ -8,12 +8,16 @@ public class Player : MonoBehaviour
     private IInput _input;
     private Rigidbody _rb;
 
+    [SerializeField] private IntVariable lastIdScored;
+
     [SerializeField] private float maxSpeed;
     [SerializeField] private float maxAccel;
     [SerializeField] private float rotateSpeed;
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnPoint;
+
+    [SerializeField] private InvokeAfterCollision healthCollider;
 
     private void Start()
     {
@@ -54,6 +58,13 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        PlayerInput p = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
+        p.SetID(GetComponent<PlayerInput>().GetID());
+    }
+
+    public void SetLastIdScored()
+    {
+        if (healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null) return;
+        lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().GetID();
     }
 }

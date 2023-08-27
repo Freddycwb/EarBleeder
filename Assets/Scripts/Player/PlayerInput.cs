@@ -317,8 +317,40 @@ public class PlayerInput : MonoBehaviour, IInput
         }
     }
 
+    public bool escapeButtonDown
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.Escape);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].leftShoulder.wasPressedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
     public void SetCanControl(bool state)
     {
         canControl = state;
+        if (GetComponent<Rigidbody>() != null)
+        {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 }
