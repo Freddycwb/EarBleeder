@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -273,7 +273,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23992
+  m_Name: pb_Mesh23990
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1705,7 +1705,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23976
+  m_Name: pb_Mesh23974
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1911,7 +1911,7 @@ MonoBehaviour:
   roundEnd: {fileID: 11400000, guid: ad4b84e3d3fc927469b34c647e5059ef, type: 2}
   lastIdScored: {fileID: 11400000, guid: 035b564599b022844be4a7029c3e7a9d, type: 2}
   playerScores: {fileID: 11400000, guid: 48b20d3fefe4508409d6e43246a37fb8, type: 2}
-  scoreToWin: 2
+  scoreToWin: 5
   controlsNumber: {fileID: 11400000, guid: 59cc6683c0bb4e14794bb1457dda22ee, type: 2}
   playersNumber: {fileID: 11400000, guid: 9d6eba1b6e089d14488c7d061f97acc8, type: 2}
   playerSlots:
@@ -2099,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 252025095}
     - target: {fileID: 5195224729027151951, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
       propertyPath: m_VersionIndex
-      value: 557
+      value: 599
       objectReference: {fileID: 0}
     - target: {fileID: 6049231103052700842, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
       propertyPath: m_Name

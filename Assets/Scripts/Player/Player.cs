@@ -16,8 +16,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnPoint;
+    private bool _shooting;
 
     [SerializeField] private InvokeAfterCollision healthCollider;
+
+    private void OnEnable()
+    {
+        _shooting = false;
+    }
 
     private void Start()
     {
@@ -36,12 +42,17 @@ public class Player : MonoBehaviour
         if (_input.fireButtonDown)
         {
             Fire();
+            _shooting = true;
+        }
+        else if (_input.fireButtonUp)
+        {
+            _shooting = false;
         }
     }
 
     private void HorizontalMove()
     {
-        Vector3 goalVel = new Vector3(_input.direction.normalized.x, 0, _input.direction.normalized.y) * maxSpeed;
+        Vector3 goalVel = _shooting ? Vector3.zero : new Vector3(_input.direction.normalized.x, 0, _input.direction.normalized.y) * maxSpeed;
         Vector3 neededAccel = goalVel - _rb.velocity;
         neededAccel -= Vector3.up * neededAccel.y;
         neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
@@ -65,6 +76,7 @@ public class Player : MonoBehaviour
     public void SetLastIdScored()
     {
         if (healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null) return;
-        lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().GetID();
+        lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().GetID() == GetComponent<PlayerInput>().GetID() ?
+            -2 : healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().GetID();
     }
 }
