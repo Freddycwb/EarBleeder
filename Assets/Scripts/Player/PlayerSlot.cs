@@ -23,7 +23,7 @@ public class PlayerSlot : MonoBehaviour
 
     private void OnEnable()
     {
-        tmp.text = "Press X to join";
+        tmp.text = tmp.text = Localization.Localize("_pressToJoin");
     }
 
     public int GetInputID()
@@ -45,7 +45,7 @@ public class PlayerSlot : MonoBehaviour
         _currentPlayer.GetComponent<PlayerInput>().SetID(id);
         _currentSkin = playerSlotID;
         _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinsUnselected.Value[_currentSkin]);
-        tmp.text = "Press X if you are ready";
+        tmp.text = Localization.Localize("_pressToReady");
         StartCoroutine("SetInputAfterTime", id);
     }
 
@@ -98,7 +98,7 @@ public class PlayerSlot : MonoBehaviour
             if (_input.aButtonDown)
             {
                 _ready = true;
-                tmp.text = "Ready!!";
+                tmp.text = Localization.Localize("_ready");
             }
             ChangeSkin();
         }
@@ -131,7 +131,7 @@ public class PlayerSlot : MonoBehaviour
         if (_input != null && _ready && _input.bButtonUp)
         {
             _ready = false;
-            tmp.text = "Press X if you are ready";
+            tmp.text = Localization.Localize("_pressToReady");
         }
         if (_input != null && !_ready && _input.bButtonDown)
         {
@@ -148,7 +148,7 @@ public class PlayerSlot : MonoBehaviour
         _input = null;
         Destroy(_currentPlayer);
         tmp = GetComponentInChildren<TextMeshPro>();
-        tmp.text = "Press X to join";
+        tmp.text = Localization.Localize("_pressToJoin");
     }
 
     public void SetPlayerPosition(Vector3 pos)
@@ -181,6 +181,6 @@ public class PlayerSlot : MonoBehaviour
 
     private void OnDisable()
     {
-        tmp.text = "Connect";
+        tmp.text = tmp.text = Localization.Localize("_connect");
     }
 }
