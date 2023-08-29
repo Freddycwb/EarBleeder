@@ -20,7 +20,4 @@ MonoBehaviour:
   - {fileID: 6624042465681176014, guid: 1cb34c2400c82ef449bf74d7c9b6270b, type: 3}
   - {fileID: 4147350686666308966, guid: ec6c72940613b1d49b9b8ea83c30f0ae, type: 3}
   - {fileID: 8721950793725906205, guid: e453a88170798b642952293e9dbcbeeb, type: 3}
-  - {fileID: 1741313721190784366, guid: 278d45b38cb755247b9d5cd82ae5935b, type: 3}
-  - {fileID: 6995361024936852304, guid: dc6d5d8d377f89744babe7fa8dd214b4, type: 3}
-  - {fileID: 8795234511638134354, guid: b507f3ed766f16a41b564aa6949be0b3, type: 3}
   PersistBetweenScenes: 0

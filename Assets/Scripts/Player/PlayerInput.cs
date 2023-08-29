@@ -268,7 +268,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.L);
+                click = Input.GetKey(KeyCode.L);
             }
             else
             {

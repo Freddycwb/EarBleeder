@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 6600059223129735382}
   - component: {fileID: 3551215964997150189}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: DrumProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -23,6 +23,7 @@ public class PlayerAnimator : MonoBehaviour
         }
         GameObject bodyNewChild = Instantiate(skin, body.transform.position, body.transform.rotation);
         bodyNewChild.transform.SetParent(body.transform);
+        bodyNewChild.GetComponent<PlayerInput>().SetID(GetComponentInParent<PlayerInput>().GetID());
     }
 
     private void Update()
