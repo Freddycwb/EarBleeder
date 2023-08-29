@@ -14,6 +14,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxAccel;
     [SerializeField] private float rotateSpeed;
 
+    [SerializeField] private float dashForce;
+    [SerializeField] private float dashHeight;
+    [SerializeField] private float dashDelay;
+    private float _currentDashTime;
+
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform projectileSpawnPoint;
     private bool _shooting;
@@ -39,6 +44,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        Dash();
+
         if (_input.fireButtonDown)
         {
             Fire();
@@ -71,6 +78,21 @@ public class Player : MonoBehaviour
     {
         PlayerInput p = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
         p.SetID(GetComponent<PlayerInput>().GetID());
+    }
+
+    private void Dash()
+    {
+        if (_input.aButtonDown && _currentDashTime <= 0)
+        {
+            _rb.velocity = Vector3.zero;
+            _currentDashTime = dashDelay;
+            Vector3 dir = new Vector3(transform.forward.x, dashHeight, transform.forward.z);
+            _rb.AddForce(dir * dashForce, ForceMode.Impulse);
+        }
+        if (_currentDashTime > 0)
+        {
+            _currentDashTime -= Time.deltaTime;
+        }
     }
 
     public void SetLastIdScored()

@@ -270,6 +270,9 @@ MonoBehaviour:
   maxSpeed: 7
   maxAccel: 0.5
   rotateSpeed: 10
+  dashForce: 15
+  dashHeight: 0.3
+  dashDelay: 0.5
   projectile: {fileID: 5471455931985266057, guid: bc127d0f33c280d469ebed486677f39a, type: 3}
   projectileSpawnPoint: {fileID: 3253705763089260795}
   healthCollider: {fileID: 5623905951260974862}

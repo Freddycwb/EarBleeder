@@ -72,7 +72,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.X);
+                click = Input.GetKeyDown(KeyCode.J);
             }
             else
             {
@@ -100,7 +100,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.X);
+                click = Input.GetKeyDown(KeyCode.J);
             }
             else
             {
@@ -128,7 +128,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyUp(KeyCode.X);
+                click = Input.GetKeyUp(KeyCode.J);
             }
             else
             {
@@ -240,7 +240,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.Space);
+                click = Input.GetKeyDown(KeyCode.L);
             }
             else
             {
@@ -268,7 +268,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.Space);
+                click = Input.GetKeyDown(KeyCode.L);
             }
             else
             {
@@ -296,7 +296,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyUp(KeyCode.Space);
+                click = Input.GetKeyUp(KeyCode.L);
             }
             else
             {

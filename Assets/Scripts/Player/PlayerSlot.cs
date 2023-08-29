@@ -58,7 +58,6 @@ public class PlayerSlot : MonoBehaviour
         yield return new WaitForEndOfFrame();
         gameObject.AddComponent<PlayerInput>().SetID(id);
         _input = GetComponent<PlayerInput>();
-        Debug.Log("colocou input " + enabled);
     }
 
     public IInput GetInput()
