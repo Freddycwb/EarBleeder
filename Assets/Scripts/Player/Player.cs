@@ -25,15 +25,16 @@ public class Player : MonoBehaviour
 
     [SerializeField] private InvokeAfterCollision healthCollider;
 
-    private void OnEnable()
-    {
-        _shooting = false;
-    }
-
     private void Start()
     {
         _input = GetComponent<IInput>();
         _rb = GetComponent<Rigidbody>();
+    }
+
+    public void ResetState()
+    {
+        _shooting = false;
+        transform.eulerAngles = Vector3.back;
     }
 
     private void FixedUpdate()

@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 7452530735591642971}
   - component: {fileID: 6600059223129735382}
   - component: {fileID: 3551215964997150189}
+  - component: {fileID: 6019924397577267927}
   m_Layer: 0
   m_Name: DrumProjectile
   m_TagString: Untagged
@@ -313,6 +314,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6019924397577267927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5471455931985266057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a170f97df3ac8ad42a2702094e16d47a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3616382214278728477}
+        m_TargetAssemblyTypeName: Projectile, Assembly-CSharp
+        m_MethodName: Explosion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5471455932413849639
 GameObject:
   m_ObjectHideFlags: 0

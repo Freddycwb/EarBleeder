@@ -156,6 +156,7 @@ public class PlayerSlot : MonoBehaviour
         if (_currentPlayer == null) return;
         _currentPlayer.SetActive(true);
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
+        _currentPlayer.GetComponent<Player>().ResetState();
         _currentPlayer.transform.position = pos;
     }
 
