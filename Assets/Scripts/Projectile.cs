@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
     public void Explosion()
     {
         PlayerInput e = Instantiate(explosion, transform.position, transform.rotation).GetComponent<PlayerInput>();
-        e.SetID(GetComponent<PlayerInput>().GetID());
+        e.SetID(_input.id);
         Destroy(gameObject);
     }
 }

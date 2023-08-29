@@ -156,7 +156,7 @@ public class MatchController : MonoBehaviour
 
     private void PlayerJoin(int i)
     {
-        playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].GetID(), "Set input on player join on player slot ");
+        playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].id, "Set input on player join on player slot ");
         playersNumber.Value++;
         Destroy(controlsNotPlaying[i]);
         controlsNotPlaying.RemoveAt(i);
@@ -184,7 +184,7 @@ public class MatchController : MonoBehaviour
         playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1)].Disconnected();
         foreach (PlayerInput p in controlsNotPlaying)
         {
-            if (p.GetID() + 1 == i)
+            if (p.id + 1 == i)
             {
                 Destroy(p);
                 controlsNotPlaying.Remove(p);
@@ -274,7 +274,7 @@ public class MatchController : MonoBehaviour
         if (lastIdScored.Value == -2) return;
         for (int i = 0; i < playerSlotsInGame.Count; i++)
         {
-            if (playerSlotsInGame[i].GetComponent<PlayerInput>().GetID() == lastIdScored.Value)
+            if (playerSlotsInGame[i].GetComponent<IInput>().id == lastIdScored.Value)
             {
                 playerScores.Value[i]++;
                 lastIdScored.Value = -2;

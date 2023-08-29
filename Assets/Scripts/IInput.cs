@@ -2,6 +2,8 @@ using UnityEngine;
 
 public interface IInput
 {
+    int id { get; }
+
     Vector2 direction { get; }
 
     bool aButtonDown { get; }

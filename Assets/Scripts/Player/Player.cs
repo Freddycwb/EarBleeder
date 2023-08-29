@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
     private void Fire()
     {
         PlayerInput p = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
-        p.SetID(GetComponent<PlayerInput>().GetID());
+        p.SetID(_input.id);
     }
 
     private void Dash()
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
     public void SetLastIdScored()
     {
         if (healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null) return;
-        lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().GetID() == GetComponent<PlayerInput>().GetID() ?
-            -2 : healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().GetID();
+        lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().id == _input.id ?
+            -2 : healthCollider.GetLastCollision().GetComponentInParent<IInput>().id;
     }
 }

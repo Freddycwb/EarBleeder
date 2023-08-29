@@ -31,7 +31,7 @@ public class PlayerSlot : MonoBehaviour
         int id = 0;
         if (_input != null)
         {
-            id = _input.GetID();
+            id = _input.id;
         }
         return id;
     }
@@ -137,7 +137,7 @@ public class PlayerSlot : MonoBehaviour
         {
             if (leave != null)
             {
-                leave.Invoke(_input.GetID());
+                leave.Invoke(_input.id);
             }
         }
     }

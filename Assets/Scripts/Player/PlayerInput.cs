@@ -15,9 +15,9 @@ public class PlayerInput : MonoBehaviour, IInput
         _id = value;
     }
 
-    public int GetID()
+    public int id
     {
-        return _id;
+        get { return _id; }
     }
 
     public Vector2 direction
