@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339257221061030623, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: playerSlotID
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
@@ -1020,7 +1020,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339257221061030623, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: playerSlotID
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
