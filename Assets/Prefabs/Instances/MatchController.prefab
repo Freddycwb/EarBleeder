@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3019741827887599014
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3019741827887599008}
+  - component: {fileID: 3019741827887599015}
+  - component: {fileID: 3019741827887599009}
+  - component: {fileID: 3019741827887599010}
+  m_Layer: 0
+  m_Name: MatchController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3019741827887599008
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019741827887599014}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3019741827887599015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019741827887599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac5844e6de3174143aa1a2b57e056e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matchStart: {fileID: 11400000, guid: 8e61ae17c7a9578489decac1204a7669, type: 2}
+  matchEnd: {fileID: 11400000, guid: 4da55d732a28aad4cad86f99227e8f48, type: 2}
+  roundSetted: {fileID: 11400000, guid: a170f97df3ac8ad42a2702094e16d47a, type: 2}
+  roundStart: {fileID: 11400000, guid: 2fe1a30b10cacb7418fa2b6b4622a2a0, type: 2}
+  roundEnd: {fileID: 11400000, guid: ad4b84e3d3fc927469b34c647e5059ef, type: 2}
+  lastIdScored: {fileID: 11400000, guid: 035b564599b022844be4a7029c3e7a9d, type: 2}
+  playerScores: {fileID: 11400000, guid: 48b20d3fefe4508409d6e43246a37fb8, type: 2}
+  scoreToWin: 5
+  controlsNumber: {fileID: 11400000, guid: 59cc6683c0bb4e14794bb1457dda22ee, type: 2}
+  playersNumber: {fileID: 11400000, guid: 9d6eba1b6e089d14488c7d061f97acc8, type: 2}
+  playerSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentStage: {fileID: 0}
+  stages: {fileID: 11400000, guid: 100bff9a364bea64b8db3b928b39acc2, type: 2}
+--- !u!114 &3019741827887599009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019741827887599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fac6747f226a44f9da5bf0f870786b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: -1
+--- !u!114 &3019741827887599010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019741827887599014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cdba1aff7af4b47498b291bef00e7e91, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3019741827887599015}
+        m_TargetAssemblyTypeName: MatchController, Assembly-CSharp
+        m_MethodName: Death
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
