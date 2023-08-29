@@ -16,6 +16,7 @@ public class MatchController : MonoBehaviour
     [SerializeField] private IntListVariable playerScores;
     [SerializeField] private int scoreToWin;
 
+    private bool atLobby = true;
     [SerializeField] private IntVariable controlsNumber;
     [SerializeField] private IntVariable playersNumber;
 
@@ -136,11 +137,14 @@ public class MatchController : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < controlsNotPlaying.Count; i++)
+        if (atLobby)
         {
-            if (controlsNotPlaying[i].aButtonUp)
+            for (int i = 0; i < controlsNotPlaying.Count; i++)
             {
-                PlayerJoin(i);
+                if (controlsNotPlaying[i].aButtonUp)
+                {
+                    PlayerJoin(i);
+                }
             }
         }
     }
@@ -231,6 +235,7 @@ public class MatchController : MonoBehaviour
 
     private void StartMatch()
     {
+        atLobby = false;
         playerSlotsInGame.Clear();
         playerScores.Value.Clear();
 
@@ -324,6 +329,7 @@ public class MatchController : MonoBehaviour
 
     public void FinishMatch()
     {
+        atLobby = true;
         Destroy(currentStage);
         currentStage = Instantiate(stages.Value[0]);
         foreach (PlayerSlot slot in playerSlots)
