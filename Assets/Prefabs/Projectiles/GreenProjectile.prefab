@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3af8d8c11838fb14c8daa176d3d9056b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3551215964997150189}
   - component: {fileID: 6019924397577267927}
   m_Layer: 0
-  m_Name: DrumProjectile
+  m_Name: GreenProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -229,7 +229,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 15
   rotationSpeed: 2.5
-  explosion: {fileID: 1777974336920111292, guid: e1d8732512095034fb76dd3c08e0fcfb, type: 3}
+  minTimeToExplode: 0.15
+  explosion: {fileID: 1777974336920111292, guid: 347bb33c09366ca4081a086d7e5c0851, type: 3}
 --- !u!114 &7452530735591642971
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5373846298897434417}
   - component: {fileID: 7020621709655578903}
   m_Layer: 7
-  m_Name: Explosion
+  m_Name: RedExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
       m_Calls: []
   instantiateOnSubAction: []
   destroyOnDisable: 0
-  timeToAction: 0.2
+  timeToAction: 0.15
   desableAfterTimer: 1
 --- !u!135 &7020621709655578903
 SphereCollider:
@@ -4953,8 +4953,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
+  - {fileID: 2100000, guid: 08897da2f4b217a4586929e3c4e9711b, type: 2}
+  - {fileID: 2100000, guid: 08897da2f4b217a4586929e3c4e9711b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14694,7 +14694,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
+  - {fileID: 2100000, guid: 08897da2f4b217a4586929e3c4e9711b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

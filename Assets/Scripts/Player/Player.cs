@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashDelay;
     private float _currentDashTime;
 
-    [SerializeField] private GameObject projectile;
+    private GameObject _projectile;
     [SerializeField] private Transform projectileSpawnPoint;
     private bool _shooting;
 
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     {
         _shooting = false;
         transform.eulerAngles = Vector3.back;
+        _projectile = transform.GetChild(1).GetChild(0).GetComponentInChildren<SkinObjects>().projectile;
     }
 
     private void FixedUpdate()
@@ -77,7 +78,7 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
-        PlayerInput p = Instantiate(projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
+        PlayerInput p = Instantiate(_projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
         p.SetID(_input.id);
     }
 

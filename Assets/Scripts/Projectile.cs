@@ -9,20 +9,27 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float minTimeToExplode;
+    private float _currentMinTimeToExplode;
 
     [SerializeField] private GameObject explosion;
 
     private void Start()
     {
         _input = GetComponent<IInput>();
+        _currentMinTimeToExplode = minTimeToExplode;
     }
 
     void Update()
     {
         HorizontalMove();
-        if (_input.fireButtonUp)
+        if (!_input.fireButton && _currentMinTimeToExplode < 0)
         {
             Explosion();
+        }
+        else
+        {
+            _currentMinTimeToExplode -= Time.deltaTime;
         }
     }
 
