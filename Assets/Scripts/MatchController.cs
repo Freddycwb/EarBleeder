@@ -168,7 +168,7 @@ public class MatchController : MonoBehaviour
 
     private void PlayerLeave(int inputID)
     {
-        for (int i = 0; i < playerSlots.Length; i++)
+        for (int i = 0; i < controlsNumber.Value; i++)
         {
             if (playerSlots[i].GetInputID() == inputID)
             {
