@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1848879242496806146}
   - component: {fileID: 6199495384054725298}
   m_Layer: 0
-  m_Name: KeyboardSkin
+  m_Name: NeonGreenKeyboardSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5471455931985266057, guid: ea0d79208fe6cd647bcf56dc91d66b70, type: 3}
+  limbsMaterial: {fileID: 2100000, guid: 71e83e2ef1434e84fa508e6fc5cbd6f8, type: 2}
 --- !u!114 &896862606719006304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,7 +422,7 @@ PrefabInstance:
     - target: {fileID: 8449996119470504636, guid: 21d3f751bdbb65547b5a20b5463209e1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d954a0d6cbea3e242a97bfda5a2f051a, type: 2}
+      objectReference: {fileID: 2100000, guid: 71e83e2ef1434e84fa508e6fc5cbd6f8, type: 2}
     - target: {fileID: 8449996119470504636, guid: 21d3f751bdbb65547b5a20b5463209e1, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
