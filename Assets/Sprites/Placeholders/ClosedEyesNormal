@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 359.37 162.47">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #1d1d1b;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #1d1d1b;
+      }
+    </style>
+  </defs>
+  <g id="Camada_3" data-name="Camada 3">
+    <g>
+      <polyline class="cls-2" points="248.65 .5 358.63 2.39 327.88 75.91 344.43 95.59 322.62 110.1 327.88 142.14 306 136.82 308.28 161.83 279.95 155.28"/>
+      <polyline class="cls-2" points="113.1 .5 .75 2.39 32.17 75.91 15.26 95.59 37.54 110.1 32.17 142.14 54.51 136.82 52.19 161.83 81.13 155.28"/>
+      <ellipse class="cls-1" cx="113.1" cy="81.16" rx="79.23" ry="80.66"/>
+      <ellipse class="cls-1" cx="249.23" cy="81.16" rx="79.23" ry="80.66"/>
+      <path class="cls-1" d="m33.87,79.6c15.99,6.43,40.7,14.18,71.71,15.53,26.89,1.17,49.23-2.88,64.75-6.96"/>
+      <path class="cls-1" d="m170.09,87.47c18.61,5.71,47.3,12.35,82.98,12.32,30.95-.03,56.46-5.07,74.14-9.84"/>
+    </g>
+  </g>
+</svg>
