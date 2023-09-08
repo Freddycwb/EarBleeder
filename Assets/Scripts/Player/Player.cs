@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
     {
         if (_input.aButtonDown && _currentDashTime <= 0)
         {
+            gameObject.layer = 9;
             _rb.velocity = Vector3.zero;
             _currentDashTime = dashDelay;
             Vector3 dir = new Vector3(transform.forward.x, dashHeight, transform.forward.z);
@@ -93,7 +94,12 @@ public class Player : MonoBehaviour
         }
         if (_currentDashTime > 0)
         {
+            
             _currentDashTime -= Time.deltaTime;
+        }
+        else
+        {
+            gameObject.layer = 0;
         }
     }
 
