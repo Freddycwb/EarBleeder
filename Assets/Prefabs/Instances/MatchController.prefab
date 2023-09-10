@@ -56,6 +56,7 @@ MonoBehaviour:
   scoreToWin: 5
   controlsNumber: {fileID: 11400000, guid: 59cc6683c0bb4e14794bb1457dda22ee, type: 2}
   playersNumber: {fileID: 11400000, guid: 9d6eba1b6e089d14488c7d061f97acc8, type: 2}
+  players: {fileID: 11400000, guid: 3d81192e8cbe37e46bdfdc6c026dc136, type: 2}
   playerSlots:
   - {fileID: 0}
   - {fileID: 0}

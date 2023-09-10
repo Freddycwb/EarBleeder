@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ced973b7b09f2547baaaade985f3d6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSlotID: 0
+  players: {fileID: 11400000, guid: 3d81192e8cbe37e46bdfdc6c026dc136, type: 2}
+  playerSlotID: 1
   tmp: {fileID: 4339257221886906365}
   player: {fileID: 6654887513521930299, guid: 61fabdcce176d314b8f87d1acd961a93, type: 3}
   skinsUnselected: {fileID: 11400000, guid: cb3db2ac905d0974e922b198d6f403c0, type: 2}

@@ -20,6 +20,8 @@ public class MatchController : MonoBehaviour
     [SerializeField] private IntVariable controlsNumber;
     [SerializeField] private IntVariable playersNumber;
 
+    [SerializeField] private GameObjectListVariable players;
+
     private List<PlayerInput> controlsNotPlaying = new List<PlayerInput>();
     [SerializeField] private PlayerSlot[] playerSlots;
     private List<PlayerSlot> playerSlotsInGame = new List<PlayerSlot>();
@@ -56,6 +58,7 @@ public class MatchController : MonoBehaviour
         controlsNotPlaying.Add(GetComponent<PlayerInput>());
         playerSlots[0].enabled = true;
         controlsNumber.Value = 1;
+        players.Value.Clear();
     }
 
     private int NumberOfJoysticks()

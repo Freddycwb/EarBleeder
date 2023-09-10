@@ -4,9 +4,11 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Windows;
 using System;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerSlot : MonoBehaviour
 {
+    [SerializeField] private GameObjectListVariable players;
     [SerializeField] private int playerSlotID;
     private bool _ready;
     [SerializeField] private TextMeshPro tmp;
@@ -45,6 +47,7 @@ public class PlayerSlot : MonoBehaviour
         _currentPlayer.GetComponent<PlayerInput>().SetID(id);
         _currentSkin = playerSlotID;
         _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinsUnselected.Value[_currentSkin]);
+        players.Value.Add(_currentPlayer);
         tmp.text = Localization.Localize("_pressToReady");
         StartCoroutine("SetInputAfterTime", id);
     }
@@ -146,6 +149,7 @@ public class PlayerSlot : MonoBehaviour
     {
         Destroy(_input);
         _input = null;
+        players.Value.Remove(_currentPlayer);
         Destroy(_currentPlayer);
         tmp = GetComponentInChildren<TextMeshPro>();
         tmp.text = Localization.Localize("_pressToJoin");
@@ -175,6 +179,7 @@ public class PlayerSlot : MonoBehaviour
         {
             Destroy(_input);
             _input = null;
+            players.Value.Remove(_currentPlayer);
             Destroy(_currentPlayer);
         }
         enabled = false;
