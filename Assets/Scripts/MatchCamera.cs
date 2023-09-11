@@ -11,6 +11,7 @@ public class MatchCamera : MonoBehaviour
     [SerializeField] private float sizeSpeed;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float distance;
+    private float _zoom;
 
     private Camera _camera;
 
@@ -60,8 +61,8 @@ public class MatchCamera : MonoBehaviour
             }
         }
 
-        float zoom = Mathf.Lerp(_camera.orthographicSize, (distance / 10 * farthest) + distance,  Time.deltaTime * sizeSpeed);
-        transform.position = Vector3.Slerp(transform.position, average + new Vector3(0, zoom * distance, -zoom * distance), Time.deltaTime * moveSpeed);
+        _zoom = Mathf.Lerp(_zoom, (distance / 10 * farthest) + distance,  Time.deltaTime * sizeSpeed);
+        transform.position = Vector3.Slerp(transform.position, average + new Vector3(0, _zoom, -_zoom), Time.deltaTime * moveSpeed);
         transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, new Vector3(45, 0, 0), Time.deltaTime * moveSpeed);
     }
 }
