@@ -351,7 +351,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  instantiateOnAction: []
+  instantiateOnAction:
+  - {fileID: 8000708592428606942, guid: ce8cf4e1d1b481c488cbc9a52a2d7135, type: 3}
   subAction:
     m_PersistentCalls:
       m_Calls: []
