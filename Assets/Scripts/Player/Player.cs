@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     private IInput _input;
     private Rigidbody _rb;
+    [SerializeField] private GameObject health;
 
     [SerializeField] private IntVariable lastIdScored;
 
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
     {
         if (_input.aButtonDown && _currentDashTime <= 0)
         {
-            gameObject.layer = 9;
+            health.layer = 9;
             _rb.velocity = Vector3.zero;
             _currentDashTime = dashDelay;
             Vector3 dir = new Vector3(transform.forward.x, dashHeight, transform.forward.z);
@@ -99,7 +100,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            gameObject.layer = 0;
+            health.layer = 6;
         }
     }
 
