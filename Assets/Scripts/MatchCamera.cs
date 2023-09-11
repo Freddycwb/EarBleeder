@@ -36,7 +36,7 @@ public class MatchCamera : MonoBehaviour
         Vector3 total = Vector3.zero;
         for (int i = 0; i < players.Value.Count; i++)
         {
-            total += players.Value[i].transform.position;
+            total += players.Value[i].activeSelf ? players.Value[i].transform.position : Vector3.zero;
         }
         for (int i = 0; i < projectiles.Value.Count; i++)
         {
@@ -44,11 +44,11 @@ public class MatchCamera : MonoBehaviour
         }
 
         Vector3 average = total / (players.Value.Count + 1);
-        float farthest = (players.Value[0].transform.position - average).magnitude;
+        float farthest = 0;
 
         for (int i = 0; i < players.Value.Count; i++)
         {
-            if ((players.Value[i].transform.position - average).magnitude > farthest)
+            if ((players.Value[i].transform.position - average).magnitude > farthest && players.Value[i].activeSelf)
             {
                 farthest = (players.Value[i].transform.position - average).magnitude;
             }
