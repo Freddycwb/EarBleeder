@@ -6,7 +6,9 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class MatchCamera : MonoBehaviour
 {
     [SerializeField] private GameObjectListVariable players;
+    [SerializeField] private GameObjectListVariable projectiles;
 
+    [SerializeField] private float sizeSpeed;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float distance;
 
@@ -35,8 +37,14 @@ public class MatchCamera : MonoBehaviour
         {
             total += players.Value[i].transform.position;
         }
+        for (int i = 0; i < projectiles.Value.Count; i++)
+        {
+            total += projectiles.Value[i].transform.position;
+        }
+
         Vector3 average = total / (players.Value.Count + 1);
         float farthest = (players.Value[0].transform.position - average).magnitude;
+
         for (int i = 0; i < players.Value.Count; i++)
         {
             if ((players.Value[i].transform.position - average).magnitude > farthest)
@@ -44,7 +52,15 @@ public class MatchCamera : MonoBehaviour
                 farthest = (players.Value[i].transform.position - average).magnitude;
             }
         }
-        _camera.orthographicSize = (distance / 10 * farthest) + distance;
+        for (int i = 0; i < projectiles.Value.Count; i++)
+        {
+            if ((projectiles.Value[i].transform.position - average).magnitude > farthest)
+            {
+                farthest = (projectiles.Value[i].transform.position - average).magnitude;
+            }
+        }
+
+        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, (distance / 10 * farthest) + distance,  Time.deltaTime * sizeSpeed);
         transform.position = Vector3.Slerp(transform.position, average + new Vector3(0, _y, _z), Time.deltaTime * moveSpeed);
     }
 }

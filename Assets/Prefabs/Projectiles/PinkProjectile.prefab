@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba60a438417255341a7eaf51750e2fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles: {fileID: 11400000, guid: 50c666633d87dbe45952b2385d070a92, type: 2}
   moveSpeed: 15
   rotationSpeed: 2.5
   minTimeToExplode: 0.15

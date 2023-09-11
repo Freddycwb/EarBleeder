@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
 {
     private IInput _input;
 
+    [SerializeField] private GameObjectListVariable projectiles;
+
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float minTimeToExplode;
@@ -17,6 +19,7 @@ public class Projectile : MonoBehaviour
     private void Start()
     {
         _input = GetComponent<IInput>();
+        projectiles.Value.Add(gameObject);
         _currentMinTimeToExplode = minTimeToExplode;
     }
 
@@ -46,6 +49,7 @@ public class Projectile : MonoBehaviour
     {
         PlayerInput e = Instantiate(explosion, transform.position, transform.rotation).GetComponent<PlayerInput>();
         e.SetID(_input.id);
+        projectiles.Value.Remove(gameObject);
         Destroy(gameObject);
     }
 }

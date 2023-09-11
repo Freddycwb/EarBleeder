@@ -99,8 +99,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: {fileID: 11400000, guid: 3d81192e8cbe37e46bdfdc6c026dc136, type: 2}
-  moveSpeed: 10
-  distance: 3.5
+  projectiles: {fileID: 11400000, guid: 50c666633d87dbe45952b2385d070a92, type: 2}
+  sizeSpeed: 2
+  moveSpeed: 2
+  distance: 4
 --- !u!114 &7606799773733979927
 MonoBehaviour:
   m_ObjectHideFlags: 0
