@@ -799,6 +799,7 @@ MonoBehaviour:
     RefIds:
     - rid: 8057808925271785475
       type: {class: Cube, ns: UnityEngine.ProBuilder.Shapes, asm: Unity.ProBuilder}
+      data: 
 --- !u!114 &844998376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1919,6 +1920,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4339257221061030622, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4339257221061030623, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: playerSlotID
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
