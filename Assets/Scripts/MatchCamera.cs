@@ -60,7 +60,8 @@ public class MatchCamera : MonoBehaviour
             }
         }
 
-        _camera.orthographicSize = Mathf.Lerp(_camera.orthographicSize, (distance / 10 * farthest) + distance,  Time.deltaTime * sizeSpeed);
-        transform.position = Vector3.Slerp(transform.position, average + new Vector3(0, _y, _z), Time.deltaTime * moveSpeed);
+        float zoom = Mathf.Lerp(_camera.orthographicSize, (distance / 10 * farthest) + distance,  Time.deltaTime * sizeSpeed);
+        transform.position = Vector3.Slerp(transform.position, average + new Vector3(0, zoom * distance, -zoom * distance), Time.deltaTime * moveSpeed);
+        transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, new Vector3(45, 0, 0), Time.deltaTime * moveSpeed);
     }
 }
