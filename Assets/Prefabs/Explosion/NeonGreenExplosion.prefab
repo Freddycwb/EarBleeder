@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5373846298897434417}
   - component: {fileID: 7020621709655578903}
   m_Layer: 7
-  m_Name: GreenExplosion
+  m_Name: NeonGreenExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

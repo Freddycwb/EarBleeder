@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
+  - {fileID: 2100000, guid: 8dd228672a66dfa4c83c7d9c35031b7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3551215964997150189}
   - component: {fileID: 6019924397577267927}
   m_Layer: 0
-  m_Name: YellowProjectile
+  m_Name: LimeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   moveSpeed: 15
   rotationSpeed: 2.5
   minTimeToExplode: 0.15
-  explosion: {fileID: 1777974336920111292, guid: 33ddbe046152d914dbb61246cfbf4793, type: 3}
+  explosion: {fileID: 1777974336920111292, guid: e1d8732512095034fb76dd3c08e0fcfb, type: 3}
 --- !u!114 &7452530735591642971
 MonoBehaviour:
   m_ObjectHideFlags: 0

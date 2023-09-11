@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281a5153cc2785c49a1a568ee896ef3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5471455931985266057, guid: ea0d79208fe6cd647bcf56dc91d66b70, type: 3}
+  projectile: {fileID: 5471455931985266057, guid: 7318af752312af046b46ed3c96c44ee8, type: 3}
   limbsMaterial: {fileID: 2100000, guid: 71e83e2ef1434e84fa508e6fc5cbd6f8, type: 2}
 --- !u!114 &896862606719006304
 MonoBehaviour:

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5373846298897434417}
   - component: {fileID: 7020621709655578903}
   m_Layer: 7
-  m_Name: YellowExplosion
+  m_Name: LimeExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4953,8 +4953,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
+  - {fileID: 2100000, guid: 8dd228672a66dfa4c83c7d9c35031b7f, type: 2}
+  - {fileID: 2100000, guid: 8dd228672a66dfa4c83c7d9c35031b7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14694,7 +14694,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73d5b16ef3227284dbf52679ad229aad, type: 2}
+  - {fileID: 2100000, guid: 8dd228672a66dfa4c83c7d9c35031b7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
