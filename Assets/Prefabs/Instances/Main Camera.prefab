@@ -126,7 +126,7 @@ MonoBehaviour:
   projectiles: {fileID: 11400000, guid: 50c666633d87dbe45952b2385d070a92, type: 2}
   sizeSpeed: 3
   moveSpeed: 3
-  distance: 30
+  distance: 40
 --- !u!114 &7606799773733979927
 MonoBehaviour:
   m_ObjectHideFlags: 0
