@@ -162,6 +162,7 @@ public class PlayerSlot : MonoBehaviour
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
         _currentPlayer.GetComponent<Player>().ResetState();
         _currentPlayer.transform.position = pos;
+        _currentPlayer.transform.eulerAngles = new Vector3(0, -180, 0);
     }
 
     public void FreePlayer()

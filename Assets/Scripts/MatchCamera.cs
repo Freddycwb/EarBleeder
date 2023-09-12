@@ -81,11 +81,13 @@ public class MatchCamera : MonoBehaviour
 
     private IEnumerator LobbyLerp()
     {
+        Vector3 startPos = transform.position;
+        Vector3 startEulerAngle = transform.eulerAngles;
         _backingToLobby = true;
         for (float i = 0; i < 1; i += Time.deltaTime)
         {
-            transform.position = Vector3.Lerp(transform.position, new Vector3(0, 7.2f, -33.6f), i);
-            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(8.75f, 0, 0), i);
+            transform.position = Vector3.Lerp(startPos, new Vector3(0, 7.2f, -33.6f), i);
+            transform.eulerAngles = Vector3.Lerp(startEulerAngle, new Vector3(8.75f, 0, 0), i);
             yield return new WaitForEndOfFrame();
         }
         transform.position = new Vector3(0, 7.2f, -33.6f);

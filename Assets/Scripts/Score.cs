@@ -14,7 +14,6 @@ public class Score : MonoBehaviour
     {
         for (int i = 0; i < playersNumber.Value; i++)
         {
-            Debug.Log("mostrou");
             scores[i].gameObject.SetActive(true);
             scores[i].text = playerScores.Value[i].ToString();
         }
@@ -24,7 +23,6 @@ public class Score : MonoBehaviour
     {
         for (int i = 0; i < playersNumber.Value; i++)
         {
-            Debug.Log("escondeu");
             scores[i].gameObject.SetActive(false);
         }
     }

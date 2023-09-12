@@ -63,8 +63,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   currentStage: {fileID: 0}
   stages: {fileID: 11400000, guid: 100bff9a364bea64b8db3b928b39acc2, type: 2}
 --- !u!114 &3019741827887599009

@@ -126,7 +126,7 @@ MonoBehaviour:
   projectiles: {fileID: 11400000, guid: 50c666633d87dbe45952b2385d070a92, type: 2}
   sizeSpeed: 3
   moveSpeed: 3
-  distance: 40
+  distance: 30
 --- !u!114 &7606799773733979927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,9 +212,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7606799773733979923}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: MatchCamera, Assembly-CSharp
+        m_MethodName: BackToLobby
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
