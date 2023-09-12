@@ -273,7 +273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathInvoke: {fileID: 8790912156041050885}
-  timeToDie: 3
+  timeToDie: 4
 --- !u!1 &4575155568736937924
 GameObject:
   m_ObjectHideFlags: 0
