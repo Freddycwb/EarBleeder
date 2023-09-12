@@ -23,6 +23,13 @@ public class MatchCamera : MonoBehaviour
     private Transform _playerZA;
     private Transform _playerZB;
 
+    private bool _backingToLobby;
+
+    private void OnEnable()
+    {
+        _backingToLobby = false;
+    }
+
     void Start()
     {
         _camera = GetComponent<Camera>();
@@ -33,6 +40,7 @@ public class MatchCamera : MonoBehaviour
 
     private void Update()
     {
+        if (_backingToLobby) return;
         Vector3 total = Vector3.zero;
         for (int i = 0; i < players.Value.Count; i++)
         {
@@ -64,5 +72,24 @@ public class MatchCamera : MonoBehaviour
         _zoom = Mathf.Lerp(_zoom, (distance / 10 * farthest) + distance,  Time.deltaTime * sizeSpeed);
         transform.position = Vector3.Slerp(transform.position, average + new Vector3(0, _zoom, -_zoom), Time.deltaTime * moveSpeed);
         transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, new Vector3(45, 0, 0), Time.deltaTime * moveSpeed);
+    }
+
+    public void BackToLobby()
+    {
+        StartCoroutine("LobbyLerp");
+    }
+
+    private IEnumerator LobbyLerp()
+    {
+        _backingToLobby = true;
+        for (float i = 0; i < 1; i += Time.deltaTime)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(0, 7.2f, -33.6f), i);
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(8.75f, 0, 0), i);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.position = new Vector3(0, 7.2f, -33.6f);
+        transform.eulerAngles = new Vector3(8.75f, 0, 0);
+        enabled = false;
     }
 }

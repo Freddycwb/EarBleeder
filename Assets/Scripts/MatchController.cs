@@ -341,6 +341,7 @@ public class MatchController : MonoBehaviour
             slot.SetPlayerPosition(slot.transform.position);
             slot.SetReady(false);
         }
+        matchEnd.Raise();
         StartCoroutine("CheckReadyAndNewJoystick");
     }
 
