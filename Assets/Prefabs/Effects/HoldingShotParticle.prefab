@@ -4986,7 +4986,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 4
+      scalar: 1.19
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6167,7 +6167,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -6192,8 +6192,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 193
-        atime1: 31804
-        atime2: 33539
+        atime1: 6554
+        atime2: 52428
         atime3: 65535
         atime4: 0
         atime5: 0
@@ -6917,7 +6917,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
