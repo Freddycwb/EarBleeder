@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
+    private IInput _input;
     private Rigidbody _rb;
 
     [SerializeField] private GameObject body;
     [SerializeField] private GameObject[] limbs;
     private Animator _bodyAnimator;
 
+    [SerializeField] private ParticleSystem notesCircle;
+    [SerializeField] private ParticleSystem pingParticle;
+    private bool _isPinging;
+
+    private void OnEnable()
+    {
+        _isPinging = false;
+    }
+
     private void Start()
     {
+        _input = GetComponentInParent<PlayerInput>();
         _rb = GetComponentInParent<Rigidbody>();
         _bodyAnimator = body.GetComponent<Animator>();
     }
@@ -35,10 +46,35 @@ public class PlayerAnimator : MonoBehaviour
     private void Update()
     {
         SetAnimatorVariable();
+        HoldingShotParticles();
     }
 
     private void SetAnimatorVariable()
     {
         _bodyAnimator.SetBool("isMoving", _rb.velocity.magnitude > 0.5);
+    }
+
+    private void HoldingShotParticles()
+    {
+        if (_input.fireButton)
+        {
+            notesCircle.startColor = Color.yellow;
+        }
+        else
+        {
+            notesCircle.startColor = new Color(0, 0, 0, 0);
+        }
+        if (_input.fireButton && !_isPinging)
+        {
+            StartCoroutine("DelayBetweenPings");
+        }
+    }
+
+    private IEnumerator DelayBetweenPings()
+    {
+        _isPinging = true;
+        pingParticle.Play();
+        yield return new WaitForSeconds(1);
+        _isPinging = false;
     }
 }
