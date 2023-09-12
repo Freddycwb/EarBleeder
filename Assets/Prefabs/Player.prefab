@@ -478,10 +478,12 @@ MonoBehaviour:
   rotateSpeed: 10
   dashForce: 15
   dashHeight: 0.3
-  dashDelay: 0.5
+  dashInvincibleTime: 0.2
+  dashDelay: 0.4
   projectileSpawnPoint: {fileID: 3253705763089260795}
   meleeAttackObject: {fileID: 2636925191726703631}
-  meleeAttackTime: 1
+  meleeAttackTime: 0.2
+  meleeAttackDelay: 0.4
   healthCollider: {fileID: 5623905951260974862}
 --- !u!54 &6654887513521930298
 Rigidbody:

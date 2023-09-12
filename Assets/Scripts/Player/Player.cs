@@ -17,8 +17,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] private float dashForce;
     [SerializeField] private float dashHeight;
+    [SerializeField] private float dashInvincibleTime;
     [SerializeField] private float dashDelay;
-    private float _currentDashTime;
+    private bool _dashing;
 
     private GameObject _projectile;
     [SerializeField] private Transform projectileSpawnPoint;
@@ -26,12 +27,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject meleeAttackObject;
     [SerializeField] private float meleeAttackTime;
+    [SerializeField] private float meleeAttackDelay;
     private bool _attacking;
 
     [SerializeField] private InvokeAfterCollision healthCollider;
 
     private void OnEnable()
     {
+        _dashing = false;
         _shooting = false;
         _attacking = false;
         meleeAttackObject.SetActive(false);
@@ -74,7 +77,7 @@ public class Player : MonoBehaviour
 
     private void HorizontalMove()
     {
-        Vector3 goalVel = _shooting || _attacking  ? Vector3.zero : new Vector3(_input.direction.normalized.x, 0, _input.direction.normalized.y) * maxSpeed;
+        Vector3 goalVel = _shooting || _attacking || _dashing ? Vector3.zero : new Vector3(_input.direction.normalized.x, 0, _input.direction.normalized.y) * maxSpeed;
         Vector3 neededAccel = goalVel - _rb.velocity;
         neededAccel -= Vector3.up * neededAccel.y;
         neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
@@ -101,12 +104,12 @@ public class Player : MonoBehaviour
         health.layer = 9;
         meleeAttackObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(meleeAttackTime);
 
         meleeAttackObject.SetActive(false);
         health.layer = 6;
 
-        yield return new WaitForSeconds(meleeAttackTime);
+        yield return new WaitForSeconds(meleeAttackDelay);
 
         _attacking = false;
     }
@@ -119,25 +122,29 @@ public class Player : MonoBehaviour
         }
     }
 
+    private IEnumerator DashCoroutine()
+    {
+        _dashing = true;
+        health.layer = 9;
+
+        _rb.velocity = Vector3.zero;
+        Vector3 dir = new Vector3(transform.forward.x, dashHeight, transform.forward.z);
+        _rb.AddForce(dir * dashForce, ForceMode.Impulse);
+
+        yield return new WaitForSeconds(dashInvincibleTime);
+
+        health.layer = 6;
+
+        yield return new WaitForSeconds(dashDelay);
+
+        _dashing = false;
+    }
 
     private void Dash()
     {
-        if (_input.aButtonDown && _currentDashTime <= 0)
+        if (_input.aButtonDown && !_dashing)
         {
-            health.layer = 9;
-            _rb.velocity = Vector3.zero;
-            _currentDashTime = dashDelay;
-            Vector3 dir = new Vector3(transform.forward.x, dashHeight, transform.forward.z);
-            _rb.AddForce(dir * dashForce, ForceMode.Impulse);
-        }
-        if (_currentDashTime > 0)
-        {
-            
-            _currentDashTime -= Time.deltaTime;
-        }
-        else
-        {
-            health.layer = 6;
+            StartCoroutine("DashCoroutine");
         }
     }
 
