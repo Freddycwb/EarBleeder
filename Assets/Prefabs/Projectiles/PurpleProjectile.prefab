@@ -162,7 +162,9 @@ MonoBehaviour:
       m_Calls: []
   instantiateOnSubAction: []
   destroyOnDisable: 0
-  tags: []
+  tags:
+  - Untagged
+  - Death
 --- !u!1 &5471455931985266057
 GameObject:
   m_ObjectHideFlags: 0

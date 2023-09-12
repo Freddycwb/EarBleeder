@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2480152360251659316}
   m_Layer: 7
   m_Name: MeleeAttackZone
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,6 +140,8 @@ GameObject:
   - component: {fileID: 4081952747910681314}
   - component: {fileID: 6766584613962006541}
   - component: {fileID: 5623905951260974862}
+  - component: {fileID: 1292533863962306826}
+  - component: {fileID: 6372829082068368399}
   m_Layer: 6
   m_Name: Health
   m_TagString: Untagged
@@ -209,7 +211,69 @@ MonoBehaviour:
       m_Calls: []
   instantiateOnSubAction: []
   destroyOnDisable: 0
-  tags: []
+  tags:
+  - Death
+--- !u!114 &1292533863962306826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915965432219568370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b55b6b3bda5cf304c9948f7a004d7e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6372829082068368399}
+        m_TargetAssemblyTypeName: OutOfBoundsHP, Assembly-CSharp
+        m_MethodName: SetOutOfBounds
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  instantiateOnAction: []
+  subAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6372829082068368399}
+        m_TargetAssemblyTypeName: OutOfBoundsHP, Assembly-CSharp
+        m_MethodName: SetOutOfBounds
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  instantiateOnSubAction: []
+  destroyOnDisable: 0
+  tags:
+  - Bounds
+--- !u!114 &6372829082068368399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3915965432219568370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5efe67df3e41a8845a813f99b988d06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathInvoke: {fileID: 8790912156041050885}
+  timeToDie: 3
 --- !u!1 &4575155568736937924
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +825,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6654887512668692949}
     m_Modifications:
+    - target: {fileID: 6168004640573729361, guid: ad1d85270ddfbb24e9d8ab0a5e064491, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6168004640573729361, guid: ad1d85270ddfbb24e9d8ab0a5e064491, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6168004641786944156, guid: ad1d85270ddfbb24e9d8ab0a5e064491, type: 3}
       propertyPath: m_RootOrder
       value: 1

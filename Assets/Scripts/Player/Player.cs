@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
 
     public void SetLastIdScored()
     {
-        if (healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null) return;
+        if (healthCollider.GetLastCollision() == null || healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null) return;
         lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().id == _input.id ?
             -2 : healthCollider.GetLastCollision().GetComponentInParent<IInput>().id;
     }
