@@ -15,8 +15,7 @@ MonoBehaviour:
   DeveloperDescription: 
   Value:
   - {fileID: 6049231103052700842, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
-  - {fileID: 6049231103052700842, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
-  - {fileID: 3355321615728500113, guid: cd8c0a6fd85207c4190cd89bbb958343, type: 3}
-  - {fileID: 5149350301531433776, guid: 085678f24a1ac194d9ff8207036b0618, type: 3}
-  - {fileID: 6049231103052700842, guid: 9377d898181546f479e75199043991e3, type: 3}
+  - {fileID: 6049231103052700842, guid: 41a34b10918d43e4d901206cebb7d19a, type: 3}
+  - {fileID: 6049231103052700842, guid: 41a34b10918d43e4d901206cebb7d19a, type: 3}
+  - {fileID: 6049231103052700842, guid: 41a34b10918d43e4d901206cebb7d19a, type: 3}
   PersistBetweenScenes: 0

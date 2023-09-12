@@ -24,7 +24,18 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     private bool _shooting;
 
+    [SerializeField] private GameObject meleeAttackObject;
+    [SerializeField] private float meleeAttackTime;
+    private bool _attacking;
+
     [SerializeField] private InvokeAfterCollision healthCollider;
+
+    private void OnEnable()
+    {
+        _shooting = false;
+        _attacking = false;
+        meleeAttackObject.SetActive(false);
+    }
 
     private void Start()
     {
@@ -48,6 +59,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Dash();
+        MeleeAttack();
 
         if (_input.fireButtonDown)
         {
@@ -62,7 +74,7 @@ public class Player : MonoBehaviour
 
     private void HorizontalMove()
     {
-        Vector3 goalVel = _shooting ? Vector3.zero : new Vector3(_input.direction.normalized.x, 0, _input.direction.normalized.y) * maxSpeed;
+        Vector3 goalVel = _shooting || _attacking  ? Vector3.zero : new Vector3(_input.direction.normalized.x, 0, _input.direction.normalized.y) * maxSpeed;
         Vector3 neededAccel = goalVel - _rb.velocity;
         neededAccel -= Vector3.up * neededAccel.y;
         neededAccel = Vector3.ClampMagnitude(neededAccel, maxAccel);
@@ -82,6 +94,31 @@ public class Player : MonoBehaviour
         PlayerInput p = Instantiate(_projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
         p.SetID(_input.id);
     }
+
+    private IEnumerator MeleeAttackCoroutine()
+    {
+        _attacking = true;
+        health.layer = 9;
+        meleeAttackObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.1f);
+
+        meleeAttackObject.SetActive(false);
+        health.layer = 6;
+
+        yield return new WaitForSeconds(meleeAttackTime);
+
+        _attacking = false;
+    }
+
+    private void MeleeAttack()
+    {
+        if (_input.bButtonDown && !_attacking)
+        {
+            StartCoroutine("MeleeAttackCoroutine");
+        }
+    }
+
 
     private void Dash()
     {

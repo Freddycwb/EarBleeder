@@ -156,7 +156,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.Q);
+                click = Input.GetKeyDown(KeyCode.K);
             }
             else
             {
@@ -184,7 +184,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.Q);
+                click = Input.GetKeyDown(KeyCode.K);
             }
             else
             {
@@ -212,7 +212,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyUp(KeyCode.Q);
+                click = Input.GetKeyUp(KeyCode.K);
             }
             else
             {
