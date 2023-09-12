@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2088,16 +2088,16 @@ Mesh:
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
-    indexCount: 18
+    indexCount: 12
     topology: 0
     baseVertex: 0
-    firstVertex: 8
-    vertexCount: 16
+    firstVertex: 16
+    vertexCount: 8
     localAABB:
       m_Center: {x: 0, y: 4.25, z: 1.2855992}
       m_Extent: {x: 9, y: 4.75, z: 1.2855992}
   - serializedVersion: 2
-    firstByte: 36
+    firstByte: 24
     indexCount: 18
     topology: 0
     baseVertex: 0
@@ -2106,6 +2106,16 @@ Mesh:
     localAABB:
       m_Center: {x: 0, y: 4.25, z: 1.2855992}
       m_Extent: {x: 9, y: 4.75, z: 1.2855992}
+  - serializedVersion: 2
+    firstByte: 60
+    indexCount: 6
+    topology: 0
+    baseVertex: 0
+    firstVertex: 8
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0, y: 4.25, z: 0}
+      m_Extent: {x: 9, y: 4.75, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -2122,7 +2132,7 @@ Mesh:
   m_KeepVertices: 1
   m_KeepIndices: 1
   m_IndexFormat: 0
-  m_IndexBuffer: 080009000a0009000b000a001000110012001100130012001400150016001500170016000000010002000100030002000400050006000500070006000c000d000e000d000f000e00
+  m_IndexBuffer: 1000110012001100130012001400150016001500170016000000010002000100030002000400050006000500070006000c000d000e000d000f000e00080009000a0009000b000a00
   m_VertexData:
     serializedVersion: 3
     m_VertexCount: 24
@@ -2649,7 +2659,71 @@ PrefabInstance:
       objectReference: {fileID: 2017413590}
     - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
       propertyPath: m_VersionIndex
-      value: 1376
+      value: 1380
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedFaces.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[0].a
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[0].b
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[1].a
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[1].b
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[2].a
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[2].b
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[3].a
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedEdges.Array.data[3].b
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedVertices.Array.data[0]
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedVertices.Array.data[1]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedVertices.Array.data[2]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946796531543608442, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_SelectedVertices.Array.data[3]
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5195224729027151946, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
       propertyPath: m_Mesh
