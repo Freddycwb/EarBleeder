@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Windows;
 using System;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerSlot : MonoBehaviour
 {
