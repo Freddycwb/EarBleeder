@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: Players
   m_EditorClassIdentifier: 
   DeveloperDescription: 
-  Value: []
+  Value:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   PersistBetweenScenes: 0

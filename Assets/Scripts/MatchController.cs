@@ -54,11 +54,13 @@ public class MatchController : MonoBehaviour
 
     private void SetStartVariables()
     {
+        lastIdScored.Value = 0;
+        playerScores.Value.Clear();
+        controlsNumber.Value = 1;
         playersNumber.Value = 0;
+        players.Value.Clear();
         controlsNotPlaying.Add(GetComponent<PlayerInput>());
         playerSlots[0].enabled = true;
-        controlsNumber.Value = 1;
-        players.Value.Clear();
     }
 
     private int NumberOfJoysticks()
@@ -158,11 +160,12 @@ public class MatchController : MonoBehaviour
         p.SetID(i);
         controlsNotPlaying.Add(p);
         controlsNumber.Value++;
-        playerSlots[controlsNumber.Value - 1].enabled = true;
+        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1)].enabled = true;
     }
 
     private void PlayerJoin(int i)
     {
+        if (playersNumber.Value > playerSlots.Length - 1) return;
         playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].id, "Set input on player join on player slot ");
         playersNumber.Value++;
         Destroy(controlsNotPlaying[i]);
@@ -171,7 +174,7 @@ public class MatchController : MonoBehaviour
 
     private void PlayerLeave(int inputID)
     {
-        for (int i = 0; i < controlsNumber.Value; i++)
+        for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1); i++)
         {
             if (playerSlots[i].GetInputID() == inputID)
             {
@@ -218,7 +221,7 @@ public class MatchController : MonoBehaviour
                 playerSlots[i].Disconnected();
             }
         }
-        for (int i = 0; i < controlsNumber.Value; i++)
+        for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1); i++)
         {
             playerSlots[i].enabled = true;
         }
