@@ -109,6 +109,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6172716564173943933}
     m_Modifications:
+    - target: {fileID: 565123960768257897, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_Name
       value: PlayerSlot4
@@ -184,6 +188,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6172716564173943933}
     m_Modifications:
+    - target: {fileID: 565123960768257897, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_Name
       value: PlayerSlot2
@@ -259,6 +267,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6172716564173943933}
     m_Modifications:
+    - target: {fileID: 565123960768257897, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_Name
       value: PlayerSlot3
@@ -334,6 +346,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6172716564173943933}
     m_Modifications:
+    - target: {fileID: 565123960768257897, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_Name
       value: PlayerSlot6
@@ -404,6 +420,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6172716564173943933}
     m_Modifications:
+    - target: {fileID: 565123960768257897, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_Name
       value: PlayerSlot5
@@ -474,6 +494,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6172716564173943933}
     m_Modifications:
+    - target: {fileID: 565123960768257897, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
       propertyPath: m_Name
       value: PlayerSlot1

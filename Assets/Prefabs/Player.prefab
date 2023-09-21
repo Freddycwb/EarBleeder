@@ -750,6 +750,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2940238569260806527, guid: e1b4330f5bb3be149b31de5b75f68cfb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4284191523971340396, guid: e1b4330f5bb3be149b31de5b75f68cfb, type: 3}
       propertyPath: m_Name
       value: OutOfBoundsParticle
