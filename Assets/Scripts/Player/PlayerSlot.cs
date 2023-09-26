@@ -17,8 +17,11 @@ public class PlayerSlot : MonoBehaviour
     [SerializeField] private GameObjectListVariable skinsUnselected;
     private int _currentSkin;
     private bool _changingSkin;
-    
 
+    private float pressTime;
+    private bool isPressing;
+   
+    
     public Action<int> leave;
 
 
@@ -99,9 +102,28 @@ public class PlayerSlot : MonoBehaviour
         {
             if (_input.aButtonDown)
             {
-                _ready = true;
-                tmp.text = Localization.Localize("_ready");
+                isPressing = true;
             }
+
+            if (_input.aButtonUp)
+            {
+                isPressing = false;
+                pressTime = 0f;
+            }
+
+            if (isPressing)
+            {
+                pressTime += Time.deltaTime;
+
+                if (pressTime >= 2f)
+                {
+                    _ready = true;
+                    tmp.text = Localization.Localize("_ready");
+                    pressTime = 0f;
+                    isPressing = false;
+                }
+            }
+
             ChangeSkin();
         }
         Backs();
