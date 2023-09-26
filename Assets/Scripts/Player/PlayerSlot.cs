@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Windows;
 using System;
+using UnityEngine.UI;
 
 public class PlayerSlot : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerSlot : MonoBehaviour
     [SerializeField] private int playerSlotID;
     private bool _ready;
     [SerializeField] private TextMeshPro tmp;
+    [SerializeField] private Image circleImage;
     private PlayerInput _input;
     [SerializeField] private GameObject player;
     private GameObject _currentPlayer;
@@ -20,6 +22,7 @@ public class PlayerSlot : MonoBehaviour
 
     private float pressTime;
     private bool isPressing;
+    private float timeToStart = 1.5f;
    
     
     public Action<int> leave;
@@ -114,8 +117,10 @@ public class PlayerSlot : MonoBehaviour
             if (isPressing)
             {
                 pressTime += Time.deltaTime;
+                float fillPercentage = Mathf.Clamp01(pressTime / timeToStart);
+                circleImage.fillAmount = fillPercentage;
 
-                if (pressTime >= 2f)
+                if (pressTime >= timeToStart)
                 {
                     _ready = true;
                     tmp.text = Localization.Localize("_ready");
@@ -123,7 +128,6 @@ public class PlayerSlot : MonoBehaviour
                     isPressing = false;
                 }
             }
-
             ChangeSkin();
         }
         Backs();
