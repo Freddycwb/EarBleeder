@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1848879242496806146}
   - component: {fileID: 6199495384054725298}
   m_Layer: 0
-  m_Name: LimeKeyboardSkin
+  m_Name: DefaultKeyboard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
