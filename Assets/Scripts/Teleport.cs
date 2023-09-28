@@ -5,7 +5,6 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     public Transform destination;
-    public Transform portalRotation;
     GameObject player;
 
     private void Awake()
@@ -21,14 +20,12 @@ public class Teleport : MonoBehaviour
             {
                 Vector3 newPos = destination.position;
                 player.transform.position = newPos;
-                player.transform.rotation = portalRotation.rotation;
             }
         }
         else
         {
             return;
         }
-
     }
 }
 
