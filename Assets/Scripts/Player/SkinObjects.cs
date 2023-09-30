@@ -5,5 +5,6 @@ using UnityEngine;
 public class SkinObjects : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject[] arms;
     public Material limbsMaterial;
 }

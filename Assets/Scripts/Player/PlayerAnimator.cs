@@ -8,7 +8,8 @@ public class PlayerAnimator : MonoBehaviour
     private Rigidbody _rb;
 
     [SerializeField] private GameObject body;
-    [SerializeField] private GameObject[] limbs;
+    [SerializeField] private GameObject[] arms;
+    [SerializeField] private GameObject[] legs;
     private Animator _bodyAnimator;
 
     [SerializeField] private ParticleSystem notesCircle;
@@ -37,9 +38,30 @@ public class PlayerAnimator : MonoBehaviour
         bodyNewChild.transform.SetParent(body.transform);
         bodyNewChild.GetComponent<PlayerInput>().SetID(GetComponentInParent<IInput>().id);
         Material limbsMaterial = bodyNewChild.GetComponent<SkinObjects>().limbsMaterial;
-        foreach (GameObject limb in limbs)
+        int i = 0;
+        foreach (GameObject newArms in arms)
         {
-            limb.GetComponent<MeshRenderer>().material = limbsMaterial;
+            newArms.GetComponent<MeshRenderer>().material = limbsMaterial;
+            if (bodyNewChild.GetComponent<SkinObjects>().arms.Length > 0)
+            {
+                arms[i].GetComponent<MeshRenderer>().enabled = false;
+                GameObject newArm = Instantiate(bodyNewChild.GetComponent<SkinObjects>().arms[i], arms[i].transform.position, arms[i].transform.rotation);
+                newArm.transform.SetParent(arms[i].transform);
+            }
+            else
+            {
+                arms[i].GetComponent<MeshRenderer>().enabled = true;
+                if (arms[i].transform.childCount > 0)
+                {
+                    Destroy(arms[i].transform.GetChild(0).gameObject);
+                }
+            }
+            i++;
+        }
+
+        foreach (GameObject legs in legs)
+        {
+            legs.GetComponent<MeshRenderer>().material = limbsMaterial;
         }
     }
 
