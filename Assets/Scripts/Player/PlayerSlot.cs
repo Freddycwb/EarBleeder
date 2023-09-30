@@ -43,6 +43,11 @@ public class PlayerSlot : MonoBehaviour
         return id;
     }
 
+    public int GetPlayerSlotID()
+    {
+        return playerSlotID;
+    }
+
     public void SetInput(int id, string debug)
     {
         enabled = true;
@@ -73,6 +78,11 @@ public class PlayerSlot : MonoBehaviour
         return _input;
     }
 
+    public void SetID(int value)
+    {
+        playerSlotID = value;
+    }
+
     public void SetReady(bool ready)
     {
         _ready = ready;
@@ -101,6 +111,13 @@ public class PlayerSlot : MonoBehaviour
 
     private void Update()
     {
+        SelectSkin();
+        Backs();
+    }
+
+
+    private void SelectSkin()
+    {
         if (_input != null && !_ready)
         {
             if (_input.aButtonDown)
@@ -112,6 +129,7 @@ public class PlayerSlot : MonoBehaviour
             {
                 isPressing = false;
                 pressTime = 0f;
+                circleImage.fillAmount = 0;
             }
 
             if (isPressing)
@@ -130,7 +148,6 @@ public class PlayerSlot : MonoBehaviour
             }
             ChangeSkin();
         }
-        Backs();
     }
 
     private void ChangeSkin()

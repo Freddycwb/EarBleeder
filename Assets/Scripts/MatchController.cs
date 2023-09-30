@@ -23,28 +23,17 @@ public class MatchController : MonoBehaviour
     [SerializeField] private GameObjectListVariable players;
 
     private List<PlayerInput> controlsNotPlaying = new List<PlayerInput>();
-    [SerializeField] private PlayerSlot[] playerSlots;
+    [SerializeField] private GameObject playerSlot;
+    private List<PlayerSlot> _playerSlots = new List<PlayerSlot>();
     private List<PlayerSlot> playerSlotsInGame = new List<PlayerSlot>();
 
     [SerializeField] private GameObject currentStage;
     [SerializeField] private GameObjectListVariable stages;
 
-    private void Awake()
-    {
-        Actions();
-    }
-
-    private void Actions()
-    {
-        foreach (PlayerSlot slot in playerSlots)
-        {
-            slot.leave += PlayerLeave;
-        }
-    }
-
     void Start()
     {
         SetStartVariables();
+        CreatePlayerSlot();
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             PlayerConnected(i);
@@ -60,26 +49,14 @@ public class MatchController : MonoBehaviour
         playersNumber.Value = 0;
         players.Value.Clear();
         controlsNotPlaying.Add(GetComponent<PlayerInput>());
-        playerSlots[0].enabled = true;
     }
 
-    private int NumberOfJoysticks()
+    private void CreatePlayerSlot()
     {
-        int n = 0;
-        string[] temp = Input.GetJoystickNames();
-
-        if (temp.Length > 0)
-        {
-            for (int i = 0; i < temp.Length; ++i)
-            {
-                if (!string.IsNullOrEmpty(temp[i]))
-                {
-                    n++;
-                }
-            }
-        }
-
-        return n;
+        PlayerSlot p = Instantiate(playerSlot).GetComponent<PlayerSlot>();
+        p.leave += PlayerLeave;
+        p.SetID(controlsNumber.Value);
+        _playerSlots.Add(p);
     }
 
     private IEnumerator CheckReadyAndNewJoystick()
@@ -114,7 +91,7 @@ public class MatchController : MonoBehaviour
         bool everyoneReady = false;
         bool atLastOneReady = false;
         bool atLastOneIsntReady = false;
-        foreach (PlayerSlot slot in playerSlots)
+        foreach (PlayerSlot slot in _playerSlots)
         {
             if (slot.enabled && slot.GetInput() != null && slot.GetReady())
             {
@@ -160,13 +137,14 @@ public class MatchController : MonoBehaviour
         p.SetID(i);
         controlsNotPlaying.Add(p);
         controlsNumber.Value++;
-        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1)].enabled = true;
+        CreatePlayerSlot();
+        _playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 0, _playerSlots.Count - 1)].enabled = true;
     }
 
     private void PlayerJoin(int i)
     {
-        if (playersNumber.Value > playerSlots.Length - 1) return;
-        playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].id, "Set input on player join on player slot ");
+        if (playersNumber.Value > _playerSlots.Count - 1) return;
+        _playerSlots[playersNumber.Value].SetInput(controlsNotPlaying[i].id, "Set input on player join on player slot ");
         playersNumber.Value++;
         Destroy(controlsNotPlaying[i]);
         controlsNotPlaying.RemoveAt(i);
@@ -174,11 +152,11 @@ public class MatchController : MonoBehaviour
 
     private void PlayerLeave(int inputID)
     {
-        for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1); i++)
+        for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, _playerSlots.Count - 1); i++)
         {
-            if (playerSlots[i].GetInputID() == inputID)
+            if (_playerSlots[i].GetInputID() == inputID)
             {
-                playerSlots[i].Leave();
+                _playerSlots[i].Leave();
             }
         }
         PlayerInput pi = gameObject.AddComponent<PlayerInput>();
@@ -191,13 +169,16 @@ public class MatchController : MonoBehaviour
     private void PlayerDesconnected(int i)
     {
         controlsNumber.Value--;
-        playerSlots[Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1)].Disconnected();
-        foreach (PlayerInput p in controlsNotPlaying)
+        PlayerSlot p = _playerSlots[controlsNumber.Value];
+        _playerSlots.RemoveAt(controlsNumber.Value);
+        p.Disconnected();
+        Destroy(p.gameObject);
+        foreach (PlayerInput pI in controlsNotPlaying)
         {
-            if (p.id + 1 == i)
+            if (pI.id + 1 == i)
             {
-                Destroy(p);
-                controlsNotPlaying.Remove(p);
+                Destroy(pI);
+                controlsNotPlaying.Remove(pI);
                 ArrangeSlots();
                 return;
             }
@@ -211,27 +192,27 @@ public class MatchController : MonoBehaviour
         List<int> inputsIDs = new List<int>();
         List<int> skins = new List<int>();
         List<bool> readys = new List<bool>();
-        for (int i = 0; i < playerSlots.Length; i++)
+        for (int i = 0; i < _playerSlots.Count; i++)
         {
-            if (playerSlots[i].GetInput() != null)
+            if (_playerSlots[i].GetInput() != null)
             {
-                inputsIDs.Add(playerSlots[i].GetInputID());
-                skins.Add(playerSlots[i].GetSkin());
-                readys.Add(playerSlots[i].GetReady());
-                playerSlots[i].Disconnected();
+                inputsIDs.Add(_playerSlots[i].GetInputID());
+                skins.Add(_playerSlots[i].GetSkin());
+                readys.Add(_playerSlots[i].GetReady());
+                _playerSlots[i].Disconnected();
             }
         }
-        for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, playerSlots.Length - 1); i++)
+        for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, _playerSlots.Count - 1); i++)
         {
-            playerSlots[i].enabled = true;
+            _playerSlots[i].enabled = true;
         }
         if (inputsIDs.Count > 0)
         {
             for (int i = 0; i < inputsIDs.Count; i++)
             {
-                playerSlots[i].SetInput(inputsIDs[0], "Set input on arrange slots");
-                playerSlots[i].SetSkin(skins[0]);
-                playerSlots[i].SetReady(readys[0]);
+                _playerSlots[i].SetInput(inputsIDs[0], "Set input on arrange slots");
+                _playerSlots[i].SetSkin(skins[0]);
+                _playerSlots[i].SetReady(readys[0]);
                 inputsIDs.RemoveAt(0);
                 skins.RemoveAt(0);
                 readys.RemoveAt(0);
@@ -245,7 +226,7 @@ public class MatchController : MonoBehaviour
         playerSlotsInGame.Clear();
         playerScores.Value.Clear();
 
-        foreach (PlayerSlot slot in playerSlots)
+        foreach (PlayerSlot slot in _playerSlots)
         {
             if (slot.enabled && slot.GetInput() != null)
             {
@@ -338,7 +319,7 @@ public class MatchController : MonoBehaviour
         atLobby = true;
         Destroy(currentStage);
         currentStage = Instantiate(stages.Value[0]);
-        foreach (PlayerSlot slot in playerSlots)
+        foreach (PlayerSlot slot in _playerSlots)
         {
             slot.gameObject.SetActive(true);
             slot.SetPlayerPosition(slot.transform.position);
@@ -362,7 +343,7 @@ public class MatchController : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (PlayerSlot slot in playerSlots)
+        foreach (PlayerSlot slot in _playerSlots)
         {
             slot.leave -= PlayerLeave;
         }
