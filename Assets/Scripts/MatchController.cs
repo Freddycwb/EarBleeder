@@ -53,7 +53,7 @@ public class MatchController : MonoBehaviour
 
     private void CreatePlayerSlot()
     {
-        PlayerSlot p = Instantiate(playerSlot).GetComponent<PlayerSlot>();
+        PlayerSlot p = Instantiate(playerSlot, new Vector3(0, 0, -3), playerSlot.transform.rotation).GetComponent<PlayerSlot>();
         p.leave += PlayerLeave;
         p.SetID(controlsNumber.Value);
         _playerSlots.Add(p);

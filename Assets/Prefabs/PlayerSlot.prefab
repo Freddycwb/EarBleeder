@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3241bfc3bb6b1f94abd8073280103859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1.5
   controlsNumber: {fileID: 11400000, guid: 59cc6683c0bb4e14794bb1457dda22ee, type: 2}
 --- !u!1 &4339257221886906367
 GameObject:

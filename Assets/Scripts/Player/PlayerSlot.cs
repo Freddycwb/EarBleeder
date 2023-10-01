@@ -111,6 +111,10 @@ public class PlayerSlot : MonoBehaviour
 
     private void Update()
     {
+        if (_currentPlayer != null)
+        {
+            _currentPlayer.transform.position = transform.position;
+        }
         SelectSkin();
         Backs();
     }
