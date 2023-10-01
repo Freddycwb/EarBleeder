@@ -23,9 +23,10 @@ public class PlayerSlot : MonoBehaviour
     private float pressTime;
     private bool isPressing;
     private float timeToStart = 1.5f;
-   
     
     public Action<int> leave;
+
+    [SerializeField] private ParticleSystem smoke;
 
 
     private void OnEnable()
@@ -51,6 +52,7 @@ public class PlayerSlot : MonoBehaviour
     public void SetInput(int id, string debug)
     {
         enabled = true;
+        smoke.Play();
         _currentPlayer = Instantiate(player, transform.position, transform.rotation);
         _currentPlayer.transform.eulerAngles = new Vector3(0,180,0);
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
@@ -193,6 +195,7 @@ public class PlayerSlot : MonoBehaviour
 
     public void Leave()
     {
+        smoke.Play();
         Destroy(_input);
         _input = null;
         players.Value.Remove(_currentPlayer);
@@ -224,6 +227,7 @@ public class PlayerSlot : MonoBehaviour
     {
         if (_input != null)
         {
+            smoke.Play();
             Destroy(_input);
             _input = null;
             players.Value.Remove(_currentPlayer);
