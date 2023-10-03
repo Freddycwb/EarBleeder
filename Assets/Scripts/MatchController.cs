@@ -27,6 +27,8 @@ public class MatchController : MonoBehaviour
     private List<PlayerSlot> _playerSlots = new List<PlayerSlot>();
     private List<PlayerSlot> playerSlotsInGame = new List<PlayerSlot>();
 
+    private CharacterSelection skinSelection;
+
     [SerializeField] private GameObject currentStage;
     [SerializeField] private GameObjectListVariable stages;
 
@@ -39,6 +41,7 @@ public class MatchController : MonoBehaviour
             PlayerConnected(i);
         }
         StartCoroutine("CheckReadyAndNewJoystick");
+        skinSelection = FindObjectOfType<CharacterSelection>();
     }
 
     private void SetStartVariables()
@@ -190,18 +193,21 @@ public class MatchController : MonoBehaviour
     private void ArrangeSlots()
     {
         List<int> inputsIDs = new List<int>();
-        List<int> skins = new List<int>();
+        int[] skins = skinSelection.GetSelectorsOverlapping();
         List<bool> readys = new List<bool>();
+        int skisOrder = 0;
         for (int i = 0; i < _playerSlots.Count; i++)
         {
             if (_playerSlots[i].GetInput() != null)
             {
                 inputsIDs.Add(_playerSlots[i].GetInputID());
-                skins.Add(_playerSlots[i].GetSkin());
                 readys.Add(_playerSlots[i].GetReady());
+                skins[skisOrder] = skinSelection.GetSelectorOverlapping(_playerSlots[i].GetPlayerSlotID() - 1);
+                skisOrder++;
                 _playerSlots[i].Disconnected();
             }
         }
+        skinSelection.SetSelectorsOverlapping(skins);
         for (int i = 0; i <= Mathf.Clamp(controlsNumber.Value - 1, 0, _playerSlots.Count - 1); i++)
         {
             _playerSlots[i].enabled = true;
@@ -210,12 +216,9 @@ public class MatchController : MonoBehaviour
         {
             for (int i = 0; i < inputsIDs.Count; i++)
             {
-                _playerSlots[i].SetInput(inputsIDs[0], "Set input on arrange slots");
-                _playerSlots[i].SetSkin(skins[0]);
-                _playerSlots[i].SetReady(readys[0]);
-                inputsIDs.RemoveAt(0);
-                skins.RemoveAt(0);
-                readys.RemoveAt(0);
+                _playerSlots[i].SetInput(inputsIDs[i], "Set input on arrange slots");
+                _playerSlots[i].SetSkin();
+                _playerSlots[i].SetReady(readys[i]);
             }
         }
     }
@@ -247,7 +250,7 @@ public class MatchController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SetStage();
         roundSetted.Raise();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         foreach (PlayerSlot slot in playerSlotsInGame)
         {
             slot.FreePlayer();
@@ -336,6 +339,7 @@ public class MatchController : MonoBehaviour
         int i = 0;
         foreach (PlayerSlot slot in playerSlotsInGame)
         {
+            Debug.Log(currentStage.transform.GetChild(0).GetChild(i).position);
             slot.SetPlayerPosition(currentStage.transform.GetChild(0).GetChild(i).position);
             i++;
         }

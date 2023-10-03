@@ -5098,6 +5098,8 @@ GameObject:
   - component: {fileID: 4339257221061030622}
   - component: {fileID: 4339257221061030623}
   - component: {fileID: 6720337676969393852}
+  - component: {fileID: 4138977506093542440}
+  - component: {fileID: 6646529559453621564}
   m_Layer: 0
   m_Name: PlayerSlot
   m_TagString: Untagged
@@ -5142,7 +5144,6 @@ MonoBehaviour:
   tmp: {fileID: 4339257221886906365}
   circleImage: {fileID: 4810688912079329246}
   player: {fileID: 6654887513521930299, guid: 61fabdcce176d314b8f87d1acd961a93, type: 3}
-  skinsUnselected: {fileID: 11400000, guid: cb3db2ac905d0974e922b198d6f403c0, type: 2}
   smoke: {fileID: 490160310728125580}
 --- !u!114 &6720337676969393852
 MonoBehaviour:
@@ -5156,8 +5157,77 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3241bfc3bb6b1f94abd8073280103859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
+  speed: 2
   controlsNumber: {fileID: 11400000, guid: 59cc6683c0bb4e14794bb1457dda22ee, type: 2}
+  range: 8
+--- !u!114 &4138977506093542440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339257221061030593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4da55d732a28aad4cad86f99227e8f48, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 198687768635889194}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 4339257221061030623}
+        m_TargetAssemblyTypeName: PlayerSlot, Assembly-CSharp
+        m_MethodName: SetMovePlayerToSlot
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &6646529559453621564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339257221061030593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: a170f97df3ac8ad42a2702094e16d47a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 198687768635889194}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4339257221886906367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,6 +5239,7 @@ GameObject:
   - component: {fileID: 4339257221886906364}
   - component: {fileID: 3846653099836413195}
   - component: {fileID: 3040262660072629218}
+  - component: {fileID: 1783813880555546013}
   - component: {fileID: 4339257221886906362}
   - component: {fileID: 4339257221886906365}
   m_Layer: 0
@@ -5237,6 +5308,34 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1783813880555546013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339257221886906367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4da55d732a28aad4cad86f99227e8f48, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3846653099836413195}
+        m_TargetAssemblyTypeName: TextLocalize, Assembly-CSharp
+        m_MethodName: LocalizeText
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: _pressToReady
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!23 &4339257221886906362
@@ -5410,7 +5509,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 3.39}
+  m_AnchoredPosition: {x: 0, y: 3}
   m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5035174903163652905

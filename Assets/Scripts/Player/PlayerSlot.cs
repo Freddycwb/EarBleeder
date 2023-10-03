@@ -16,8 +16,8 @@ public class PlayerSlot : MonoBehaviour
     private PlayerInput _input;
     [SerializeField] private GameObject player;
     private GameObject _currentPlayer;
-    [SerializeField] private GameObjectListVariable skinsUnselected;
-    private int _currentSkin;
+
+    private CharacterSelection skinSelector;
     private bool _changingSkin;
 
     private float pressTime;
@@ -27,11 +27,24 @@ public class PlayerSlot : MonoBehaviour
     public Action<int> leave;
 
     [SerializeField] private ParticleSystem smoke;
+    private bool movePlayerToSlot = true;
 
 
     private void OnEnable()
     {
-        tmp.text = tmp.text = Localization.Localize("_pressToJoin");
+        skinSelector = FindObjectOfType<CharacterSelection>();
+        skinSelector.skinHasBeenSelected += SetSkin;
+        if (_currentPlayer != null)
+        {
+            Debug.Log("aperte ready");
+            tmp.text = Localization.Localize("_pressToReady");
+        }
+        else
+        {
+            Debug.Log("entra");
+            tmp.text = Localization.Localize("_pressToJoin");
+        }
+        Debug.Log(tmp.text);
     }
 
     public int GetInputID()
@@ -57,8 +70,7 @@ public class PlayerSlot : MonoBehaviour
         _currentPlayer.transform.eulerAngles = new Vector3(0,180,0);
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
         _currentPlayer.GetComponent<PlayerInput>().SetID(id);
-        _currentSkin = playerSlotID;
-        _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinsUnselected.Value[_currentSkin]);
+        _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinSelector.EnableSelector(playerSlotID));
         players.Value.Add(_currentPlayer);
         tmp.text = Localization.Localize("_pressToReady");
         StartCoroutine("SetInputAfterTime", id);
@@ -90,6 +102,11 @@ public class PlayerSlot : MonoBehaviour
         _ready = ready;
     }
 
+    public void SetMovePlayerToSlot(bool value)
+    {
+        movePlayerToSlot = value;
+    }
+
     public bool GetReady()
     {
         return _ready;
@@ -100,20 +117,14 @@ public class PlayerSlot : MonoBehaviour
         return _currentPlayer != null && _currentPlayer.activeSelf;
     }
 
-    public void SetSkin(int skin)
+    public void SetSkin()
     {
-        _currentSkin = skin;
-        _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinsUnselected.Value[_currentSkin]);
-    }
-
-    public int GetSkin()
-    {
-        return _currentSkin;
+        if(_currentPlayer != null) _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinSelector.GetSkin(playerSlotID));
     }
 
     private void Update()
     {
-        if (_currentPlayer != null)
+        if (_currentPlayer != null && movePlayerToSlot)
         {
             _currentPlayer.transform.position = transform.position;
         }
@@ -133,9 +144,7 @@ public class PlayerSlot : MonoBehaviour
 
             if (_input.aButtonUp)
             {
-                isPressing = false;
-                pressTime = 0f;
-                circleImage.fillAmount = 0;
+                ResetReadyCircle();
             }
 
             if (isPressing)
@@ -147,28 +156,36 @@ public class PlayerSlot : MonoBehaviour
                 if (pressTime >= timeToStart)
                 {
                     _ready = true;
+                    skinSelector.SelectSkin(playerSlotID);
                     tmp.text = Localization.Localize("_ready");
-                    pressTime = 0f;
-                    isPressing = false;
+                    ResetReadyCircle();
                 }
             }
             ChangeSkin();
         }
     }
 
+    private void ResetReadyCircle()
+    {
+        isPressing = false;
+        pressTime = 0f;
+        circleImage.fillAmount = 0;
+    }
+
     private void ChangeSkin()
     {
         if ((_input.direction.x >= 0.5f || _input.direction.x < -0.5f) && !_changingSkin)
         {
+            GameObject skin = null;
             if (_input.direction.x < 0)
             {
-                _currentSkin = _currentSkin == 0 ? skinsUnselected.Value.Count - 1 : _currentSkin - 1;
+                skin = skinSelector.MoveSelector(playerSlotID, 1);
             }
             else
             {
-                _currentSkin = _currentSkin == skinsUnselected.Value.Count - 1 ? 0 : _currentSkin + 1;
+                skin = skinSelector.MoveSelector(playerSlotID, -1);
             }
-            _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinsUnselected.Value[_currentSkin]);
+            _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skin);
             _changingSkin = true;
         }
         else if (_input.direction.x < 0.5f && _input.direction.x > -0.5f) 
@@ -182,6 +199,8 @@ public class PlayerSlot : MonoBehaviour
         if (_input != null && _ready && _input.bButtonUp)
         {
             _ready = false;
+            ResetReadyCircle();
+            skinSelector.DeselectSkin(playerSlotID);
             tmp.text = Localization.Localize("_pressToReady");
         }
         if (_input != null && !_ready && _input.bButtonDown)
@@ -197,16 +216,20 @@ public class PlayerSlot : MonoBehaviour
     {
         smoke.Play();
         Destroy(_input);
+        skinSelector.DisableSelector(playerSlotID);
         _input = null;
         players.Value.Remove(_currentPlayer);
         Destroy(_currentPlayer);
         tmp = GetComponentInChildren<TextMeshPro>();
         tmp.text = Localization.Localize("_pressToJoin");
+        Debug.Log(tmp.text);
+        ResetReadyCircle();
     }
 
     public void SetPlayerPosition(Vector3 pos)
     {
         if (_currentPlayer == null) return;
+        movePlayerToSlot = false;
         _currentPlayer.SetActive(true);
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
         _currentPlayer.GetComponent<Player>().ResetState();
@@ -229,15 +252,22 @@ public class PlayerSlot : MonoBehaviour
         {
             smoke.Play();
             Destroy(_input);
+            skinSelector.DisableSelector(playerSlotID);
             _input = null;
             players.Value.Remove(_currentPlayer);
             Destroy(_currentPlayer);
+            ResetReadyCircle();
         }
         enabled = false;
     }
 
     private void OnDisable()
     {
-        tmp.text = tmp.text = Localization.Localize("_connect");
+        tmp.text = Localization.Localize("_connect");
+    }
+
+    private void OnDestroy()
+    {
+        if (skinSelector != null) skinSelector.skinHasBeenSelected -= SetSkin;
     }
 }

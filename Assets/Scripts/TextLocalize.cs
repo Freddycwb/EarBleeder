@@ -47,4 +47,16 @@ public class TextLocalize : MonoBehaviour
             _TMProText.text = Localization.Localize(_key);
         }
     }
+
+    public void LocalizeText(string value)
+    {
+        if (isInUI)
+        {
+            _TMProUIText.text = Localization.Localize(value);
+        }
+        else
+        {
+            _TMProText.text = Localization.Localize(value);
+        }
+    }
 }
