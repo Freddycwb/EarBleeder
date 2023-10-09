@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1306,6 +1306,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1295749530, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 1499999036646680632, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1394,7 +1398,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2745855818227070256, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
 --- !u!1001 &3019741826184936212
 PrefabInstance:
@@ -1609,6 +1614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stage
       objectReference: {fileID: 0}
+    - target: {fileID: 7091868744923929703, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: f73973a53de02904eb1a3e53a7614f9a, type: 2}
     - target: {fileID: 7494909559010875817, guid: fbc0daafe7275fc4c9901e9588634c0a, type: 3}
       propertyPath: m_Mesh
       value: 
