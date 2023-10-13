@@ -7,6 +7,8 @@ public class PlayerAnimator : MonoBehaviour
     private IInput _input;
     private Rigidbody _rb;
 
+    private GameObject _currentSkin;
+ 
     [SerializeField] private GameObject body;
     [SerializeField] private GameObject[] arms;
     [SerializeField] private GameObject[] legs;
@@ -28,8 +30,14 @@ public class PlayerAnimator : MonoBehaviour
         _bodyAnimator = body.GetComponent<Animator>();
     }
 
+    public GameObject GetBody()
+    {
+        return _currentSkin;
+    }
+
     public void SetBody(GameObject skin)
     {
+        _currentSkin = skin;
         if (body.transform.childCount > 4)
         {
             Destroy(body.transform.GetChild(body.transform.childCount - 1).gameObject);

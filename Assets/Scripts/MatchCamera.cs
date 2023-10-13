@@ -93,4 +93,18 @@ public class MatchCamera : MonoBehaviour
         transform.eulerAngles = new Vector3(8.75f, 0, 0);
         enabled = false;
     }
+
+    public void GoToVictoryScreen()
+    {
+        StartCoroutine("VictoryScreenLerp");
+    }
+
+    private IEnumerator VictoryScreenLerp()
+    {
+        _backingToLobby = true;
+        yield return new WaitForSeconds(0.8f);
+        transform.position = new Vector3(0, 3, -50);
+        transform.eulerAngles = new Vector3(-1, 180, 0);
+        enabled = false;
+    }
 }

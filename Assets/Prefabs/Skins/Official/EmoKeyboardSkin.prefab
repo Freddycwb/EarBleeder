@@ -65,7 +65,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5471455931985266057, guid: ea0d79208fe6cd647bcf56dc91d66b70, type: 3}
+  arms: []
   limbsMaterial: {fileID: 2100000, guid: 10a7fa8ea19fa8a49b9a8d379027294f, type: 2}
+  victoryEyes: {fileID: 2100000, guid: 628f25661fe485c409d53cc362baa9e7, type: 2}
+  loseSprite: {fileID: 21300000, guid: 382b01e3195748f47b9a03b7ebf17dea, type: 3}
 --- !u!114 &896862606719006304
 MonoBehaviour:
   m_ObjectHideFlags: 0

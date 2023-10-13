@@ -7,4 +7,6 @@ public class SkinObjects : MonoBehaviour
     public GameObject projectile;
     public GameObject[] arms;
     public Material limbsMaterial;
+    public Material victoryEyes;
+    public Sprite loseSprite;
 }

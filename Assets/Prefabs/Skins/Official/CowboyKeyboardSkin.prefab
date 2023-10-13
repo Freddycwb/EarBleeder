@@ -66,7 +66,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 5471455931985266057, guid: eabc25374c8a3b445b6a19ef9ea1161c, type: 3}
+  arms: []
   limbsMaterial: {fileID: 2100000, guid: df06cdb782fa23943a1c9d06d6c8aab1, type: 2}
+  victoryEyes: {fileID: 2100000, guid: 0323406d849a41446b61ef1a60028bf7, type: 2}
+  loseSprite: {fileID: 21300000, guid: acc145e742dfec042875a367a292fdba, type: 3}
 --- !u!114 &6118163621207201319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,9 +195,9 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2100000, guid: 0323406d849a41446b61ef1a60028bf7, type: 2}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

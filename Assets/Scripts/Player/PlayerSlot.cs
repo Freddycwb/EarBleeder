@@ -36,15 +36,12 @@ public class PlayerSlot : MonoBehaviour
         skinSelector.skinHasBeenSelected += SetSkin;
         if (_currentPlayer != null)
         {
-            Debug.Log("aperte ready");
             tmp.text = Localization.Localize("_pressToReady");
         }
         else
         {
-            Debug.Log("entra");
             tmp.text = Localization.Localize("_pressToJoin");
         }
-        Debug.Log(tmp.text);
     }
 
     public int GetInputID()

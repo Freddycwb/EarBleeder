@@ -32,6 +32,8 @@ public class MatchController : MonoBehaviour
     [SerializeField] private GameObject currentStage;
     [SerializeField] private GameObjectListVariable stages;
 
+    private bool _matchOver;
+
     void Start()
     {
         SetStartVariables();
@@ -226,6 +228,7 @@ public class MatchController : MonoBehaviour
     private void StartMatch()
     {
         atLobby = false;
+        _matchOver = false;
         playerSlotsInGame.Clear();
         playerScores.Value.Clear();
 
@@ -279,17 +282,16 @@ public class MatchController : MonoBehaviour
 
     private void CheckIsMatchOver()
     {
-        bool over = false;
-
         foreach (int score in playerScores.Value)
         {
             if (score >= scoreToWin)
             {
-                FinishMatch();
+                _matchOver = true;
+                StartCoroutine("FinishMatch");
             }
         }
 
-        if (!over)
+        if (!_matchOver)
         {
             CheckIsRoundOver();
         }
@@ -307,18 +309,22 @@ public class MatchController : MonoBehaviour
         }
         if (playersAlive <= 1)
         {
-            FinishRound();
+            StartCoroutine("FinishRound");
         }
     }
 
-    public void FinishRound()
+    public IEnumerator FinishRound()
     {
+        yield return new WaitForSeconds(1.5f);
         roundEnd.Raise();
+        yield return new WaitForSeconds(0.3f);
         StartCoroutine("StartRound");
     }
 
-    public void FinishMatch()
+    public IEnumerator FinishMatch()
     {
+        matchEnd.Raise();
+        yield return new WaitForSeconds(0.8f);
         atLobby = true;
         Destroy(currentStage);
         currentStage = Instantiate(stages.Value[0]);
@@ -328,7 +334,6 @@ public class MatchController : MonoBehaviour
             slot.SetPlayerPosition(slot.transform.position);
             slot.SetReady(false);
         }
-        matchEnd.Raise();
         StartCoroutine("CheckReadyAndNewJoystick");
     }
 
@@ -339,7 +344,6 @@ public class MatchController : MonoBehaviour
         int i = 0;
         foreach (PlayerSlot slot in playerSlotsInGame)
         {
-            Debug.Log(currentStage.transform.GetChild(0).GetChild(i).position);
             slot.SetPlayerPosition(currentStage.transform.GetChild(0).GetChild(i).position);
             i++;
         }
