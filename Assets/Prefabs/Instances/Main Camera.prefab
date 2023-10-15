@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7606799773072796261}
   - component: {fileID: 7606799773072796258}
-  - component: {fileID: 7606799773072796259}
   - component: {fileID: 1337207069}
   - component: {fileID: 7606799773733979923}
   - component: {fileID: 7606799773733979927}
   - component: {fileID: 1337207070}
   - component: {fileID: 1337207076}
   - component: {fileID: 2806297868461093856}
+  - component: {fileID: 1332381233815308131}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -82,14 +82,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7606799773072796259
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7606799773072796256}
-  m_Enabled: 1
 --- !u!95 &1337207069
 Animator:
   serializedVersion: 5
@@ -185,6 +177,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1337207069}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1337207069}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: Play
         m_Mode: 5
@@ -214,7 +218,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7606799773733979923}
         m_TargetAssemblyTypeName: MatchCamera, Assembly-CSharp
-        m_MethodName: BackToLobby
+        m_MethodName: GoToVictoryScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -257,3 +261,16 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &1332381233815308131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606799773072796256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
