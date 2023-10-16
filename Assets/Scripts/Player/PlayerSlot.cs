@@ -12,6 +12,7 @@ public class PlayerSlot : MonoBehaviour
     [SerializeField] private int playerSlotID;
     private bool _ready;
     [SerializeField] private TextMeshPro tmp;
+    [SerializeField] private GameObject btnImage;
     [SerializeField] private Image circleImage;
     private PlayerInput _input;
     [SerializeField] private GameObject player;
@@ -36,6 +37,20 @@ public class PlayerSlot : MonoBehaviour
         skinSelector.skinHasBeenSelected += SetSkin;
         if (_currentPlayer != null)
         {
+            btnImage.gameObject.SetActive(true);
+            tmp.text = Localization.Localize("_pressToReady");
+        }
+        else
+        {
+            tmp.text = Localization.Localize("_pressToJoin");
+        }
+    }
+
+    public void SetTextAndImage()
+    {
+        if (_currentPlayer != null)
+        {
+            btnImage.gameObject.SetActive(true);
             tmp.text = Localization.Localize("_pressToReady");
         }
         else

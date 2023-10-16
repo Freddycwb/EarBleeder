@@ -234,6 +234,7 @@ MonoBehaviour:
   rotationSpeed: 2.5
   minTimeToExplode: 0.15
   explosion: {fileID: 1777974336920111292, guid: 141e1b174a4c256439847ef07ff13180, type: 3}
+  isPaused: {fileID: 11400000, guid: 933f4016c9ebe7c4f99d78f55ce8889e, type: 2}
 --- !u!114 &7452530735591642971
 MonoBehaviour:
   m_ObjectHideFlags: 0

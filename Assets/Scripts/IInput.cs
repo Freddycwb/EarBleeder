@@ -6,6 +6,10 @@ public interface IInput
 
     Vector2 direction { get; }
 
+    bool startButtonDown { get; }
+    bool startButton { get; }
+    bool startButtonUp { get; }
+
     bool aButtonDown { get; }
     bool aButton { get; }
     bool aButtonUp { get; }

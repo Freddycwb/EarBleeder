@@ -5100,6 +5100,7 @@ GameObject:
   - component: {fileID: 6720337676969393852}
   - component: {fileID: 4138977506093542440}
   - component: {fileID: 6646529559453621564}
+  - component: {fileID: 3169353006053529699}
   m_Layer: 0
   m_Name: PlayerSlot
   m_TagString: Untagged
@@ -5142,6 +5143,7 @@ MonoBehaviour:
   players: {fileID: 11400000, guid: 3d81192e8cbe37e46bdfdc6c026dc136, type: 2}
   playerSlotID: 1
   tmp: {fileID: 4339257221886906365}
+  btnImage: {fileID: 198687768635889194}
   circleImage: {fileID: 4810688912079329246}
   player: {fileID: 6654887513521930299, guid: 61fabdcce176d314b8f87d1acd961a93, type: 3}
   smoke: {fileID: 490160310728125580}
@@ -5228,6 +5230,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3169353006053529699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4339257221061030593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 83f6bed2d8469224798aa0467c48624f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4339257221061030623}
+        m_TargetAssemblyTypeName: PlayerSlot, Assembly-CSharp
+        m_MethodName: SetTextAndImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4339257221886906367
 GameObject:
   m_ObjectHideFlags: 0
@@ -5237,9 +5267,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4339257221886906364}
-  - component: {fileID: 3846653099836413195}
+  - component: {fileID: 5690735242986277433}
   - component: {fileID: 3040262660072629218}
-  - component: {fileID: 1783813880555546013}
   - component: {fileID: 4339257221886906362}
   - component: {fileID: 4339257221886906365}
   m_Layer: 0
@@ -5269,7 +5298,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2.5}
   m_SizeDelta: {x: 1.2, y: 1.2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3846653099836413195
+--- !u!114 &5690735242986277433
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5308,34 +5337,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1783813880555546013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4339257221886906367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 4da55d732a28aad4cad86f99227e8f48, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3846653099836413195}
-        m_TargetAssemblyTypeName: TextLocalize, Assembly-CSharp
-        m_MethodName: LocalizeText
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: _pressToReady
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!23 &4339257221886906362

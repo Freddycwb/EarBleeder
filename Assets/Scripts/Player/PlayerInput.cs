@@ -65,6 +65,67 @@ public class PlayerInput : MonoBehaviour, IInput
         }
     }
 
+    public bool startButtonDown
+    {
+        get
+        {
+            if (canControl)
+            {
+                bool gamepadA = false;
+                if (Gamepad.current != null)
+                {
+                    gamepadA = Gamepad.current.startButton.wasPressedThisFrame;
+                }
+                return Input.GetKeyDown(KeyCode.Escape) || gamepadA;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool startButton
+    {
+        get
+        {
+            if (canControl)
+            {
+                bool gamepadA = false;
+                if (Gamepad.current != null)
+                {
+                    gamepadA = Gamepad.current.startButton.isPressed;
+                }
+                return Input.GetKey(KeyCode.Escape) || gamepadA;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool startButtonUp
+    {
+        get
+        {
+            if (canControl)
+            {
+                bool gamepadA = false;
+                if (Gamepad.current != null)
+                {
+                    gamepadA = Gamepad.current.startButton.wasReleasedThisFrame;
+                }
+                return Input.GetKeyUp(KeyCode.Escape) || gamepadA;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
     public bool aButtonDown
     {
         get

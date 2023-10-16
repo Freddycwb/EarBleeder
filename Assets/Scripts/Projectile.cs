@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private GameObject explosion;
 
+    [SerializeField] private BoolVariable isPaused;
+
     private void Start()
     {
         _input = GetComponent<IInput>();
@@ -25,6 +27,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        if (isPaused.Value) { return; }
         HorizontalMove();
         if (!_input.fireButton && _currentMinTimeToExplode < 0)
         {

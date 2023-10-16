@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
 
     [SerializeField] private InvokeAfterCollision healthCollider;
 
+    [SerializeField] private IntVariable playerWhoPaused;
+    [SerializeField] private GameEvent pauseWasPressed;
+    [SerializeField] private BoolVariable isPaused;
+
     private void OnEnable()
     {
         _dashing = false;
@@ -55,12 +59,15 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (isPaused.Value) { return; }
         HorizontalMove();
         MoveRotate();
     }
 
     private void Update()
     {
+        Pause();
+        if (isPaused.Value) { return; }
         Dash();
         MeleeAttack();
 
@@ -119,6 +126,15 @@ public class Player : MonoBehaviour
         if (_input.bButtonDown && !_attacking)
         {
             StartCoroutine("MeleeAttackCoroutine");
+        }
+    }
+
+    private void Pause()
+    {
+        if (_input.startButtonDown)
+        {
+            playerWhoPaused.Value = _input.id;
+            pauseWasPressed.Raise();
         }
     }
 
