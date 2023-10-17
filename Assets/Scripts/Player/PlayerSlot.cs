@@ -30,6 +30,8 @@ public class PlayerSlot : MonoBehaviour
     [SerializeField] private ParticleSystem smoke;
     private bool movePlayerToSlot = true;
 
+    public Color[] slotColor;
+
 
     private void OnEnable()
     {
@@ -83,6 +85,8 @@ public class PlayerSlot : MonoBehaviour
         _currentPlayer.GetComponent<PlayerInput>().SetCanControl(false);
         _currentPlayer.GetComponent<PlayerInput>().SetID(id);
         _currentPlayer.GetComponentInChildren<PlayerAnimator>().SetBody(skinSelector.EnableSelector(playerSlotID));
+        _currentPlayer.transform.GetChild(_currentPlayer.transform.childCount - 1).GetComponent<TextMeshPro>().text = "P" + playerSlotID;
+        _currentPlayer.transform.GetChild(_currentPlayer.transform.childCount - 1).GetComponent<TextMeshPro>().color = slotColor[playerSlotID - 1];
         players.Value.Add(_currentPlayer);
         tmp.text = Localization.Localize("_pressToReady");
         StartCoroutine("SetInputAfterTime", id);
