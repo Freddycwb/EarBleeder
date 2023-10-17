@@ -69,14 +69,22 @@ public class PlayerInput : MonoBehaviour, IInput
     {
         get
         {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.Escape);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].startButton.wasPressedThisFrame;
+                }
+            }
+
             if (canControl)
             {
-                bool gamepadA = false;
-                if (Gamepad.current != null)
-                {
-                    gamepadA = Gamepad.current.startButton.wasPressedThisFrame;
-                }
-                return Input.GetKeyDown(KeyCode.Escape) || gamepadA;
+                return click;
             }
             else
             {
@@ -89,14 +97,22 @@ public class PlayerInput : MonoBehaviour, IInput
     {
         get
         {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKey(KeyCode.Escape);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].startButton.isPressed;
+                }
+            }
+
             if (canControl)
             {
-                bool gamepadA = false;
-                if (Gamepad.current != null)
-                {
-                    gamepadA = Gamepad.current.startButton.isPressed;
-                }
-                return Input.GetKey(KeyCode.Escape) || gamepadA;
+                return click;
             }
             else
             {
@@ -109,14 +125,22 @@ public class PlayerInput : MonoBehaviour, IInput
     {
         get
         {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyUp(KeyCode.Escape);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].startButton.wasReleasedThisFrame;
+                }
+            }
+
             if (canControl)
             {
-                bool gamepadA = false;
-                if (Gamepad.current != null)
-                {
-                    gamepadA = Gamepad.current.startButton.wasReleasedThisFrame;
-                }
-                return Input.GetKeyUp(KeyCode.Escape) || gamepadA;
+                return click;
             }
             else
             {
@@ -161,7 +185,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.J);
+                click = Input.GetKey(KeyCode.J);
             }
             else
             {
@@ -245,7 +269,7 @@ public class PlayerInput : MonoBehaviour, IInput
             bool click = false;
             if (_id == -1)
             {
-                click = Input.GetKeyDown(KeyCode.K);
+                click = Input.GetKey(KeyCode.K);
             }
             else
             {
@@ -293,6 +317,351 @@ public class PlayerInput : MonoBehaviour, IInput
             }
         }
     }
+
+
+    public bool dPadDownButtonDown
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.DownArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.down.wasPressedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadDownButton
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.DownArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.down.isPressed;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadDownButtonUp
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyUp(KeyCode.DownArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.down.wasReleasedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
+
+    public bool dPadUpButtonDown
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.UpArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.up.wasPressedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadUpButton
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.UpArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.up.isPressed;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadUpButtonUp
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyUp(KeyCode.UpArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.up.wasReleasedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
+
+    public bool dPadLeftButtonDown
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.LeftArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.left.wasPressedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadLeftButton
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.LeftArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.left.isPressed;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadLeftButtonUp
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyUp(KeyCode.LeftArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.left.wasReleasedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
+
+    public bool dPadRightButtonDown
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.RightArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.right.wasPressedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadRightButton
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyDown(KeyCode.RightArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.right.isPressed;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    public bool dPadRightButtonUp
+    {
+        get
+        {
+            bool click = false;
+            if (_id == -1)
+            {
+                click = Input.GetKeyUp(KeyCode.RightArrow);
+            }
+            else
+            {
+                if (_id <= Gamepad.all.Count - 1)
+                {
+                    click = Gamepad.all[_id].dpad.right.wasReleasedThisFrame;
+                }
+            }
+
+            if (canControl)
+            {
+                return click;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+
 
     public bool fireButtonDown
     {

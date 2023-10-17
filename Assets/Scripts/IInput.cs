@@ -18,6 +18,22 @@ public interface IInput
     bool bButton { get; }
     bool bButtonUp { get; }
 
+    bool dPadDownButtonDown { get; }
+    bool dPadDownButton { get; }
+    bool dPadDownButtonUp { get; }
+
+    bool dPadUpButtonDown { get; }
+    bool dPadUpButton { get; }
+    bool dPadUpButtonUp { get; }
+
+    bool dPadLeftButtonDown { get; }
+    bool dPadLeftButton { get; }
+    bool dPadLeftButtonUp { get; }
+
+    bool dPadRightButtonDown { get; }
+    bool dPadRightButton { get; }
+    bool dPadRightButtonUp { get; }
+
     bool fireButtonDown { get; }
     bool fireButton { get; }
     bool fireButtonUp { get; }
