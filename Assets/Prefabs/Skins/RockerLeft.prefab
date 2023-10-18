@@ -83,10 +83,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6877481245417288963, guid: 73c58e2d2eb45b64188f20c731ed4119, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
+    - target: {fileID: -830131134181853142, guid: 73c58e2d2eb45b64188f20c731ed4119, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
     - target: {fileID: 919132149155446097, guid: 73c58e2d2eb45b64188f20c731ed4119, type: 3}
       propertyPath: m_Name
       value: RockerLeftArm
       objectReference: {fileID: 0}
+    - target: {fileID: 8543965445373842184, guid: 73c58e2d2eb45b64188f20c731ed4119, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c58e2d2eb45b64188f20c731ed4119, type: 3}
 --- !u!4 &4304891076178768690 stripped

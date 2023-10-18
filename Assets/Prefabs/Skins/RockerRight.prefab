@@ -83,10 +83,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4856746350265117782, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
+    - target: {fileID: -1352133966584931148, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
+    - target: {fileID: -884104258197911889, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
+    - target: {fileID: 200094257905237674, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
     - target: {fileID: 919132149155446097, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
       propertyPath: m_Name
       value: RockerRightArm
       objectReference: {fileID: 0}
+    - target: {fileID: 2516708517482709533, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
+    - target: {fileID: 9065245265417261172, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4bbfa28089c9e254ab996ec5298ec706, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ee1ad84f45fa6b4d84c5616527f03c2, type: 3}
 --- !u!4 &8171417371687261086 stripped
