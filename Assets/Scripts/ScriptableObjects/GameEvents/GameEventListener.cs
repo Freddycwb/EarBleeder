@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventListener : MonoBehaviour
+public class GameEventListener : MonoBehaviour, IGameEventListener
 {
     [Tooltip("Event to register with.")]
     public GameEvent Event;
@@ -21,8 +21,9 @@ public class GameEventListener : MonoBehaviour
         Event.UnregisterListener(this);
     }
 
-    public virtual void OnEventRaised()
+    public virtual void OnEventRaised(params object[] parameters)
     {
+        // Ignores parameters because you can't pass them to a UnityEvent
         Response.Invoke();
     }
 }
