@@ -359,8 +359,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../FMOD/FMOD Projects/ScreamCutiesOficial/ScreamCutiesOficial.fspro
-  sourceBankPath: ../../../FMOD/FMOD Projects/ScreamCutiesOficial/Build
+  sourceProjectPath: Assets/FMOD/ScreamCutiesOficial/ScreamCutiesOficial.fspro
+  sourceBankPath: Assets/FMOD/ScreamCutiesOficial/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1

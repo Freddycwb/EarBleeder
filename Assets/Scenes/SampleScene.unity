@@ -1260,14 +1260,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Events:
-  - {fileID: 11400000, guid: 83f6bed2d8469224798aa0467c48624f, type: 2}
+  - {fileID: 11400000, guid: 8fe14bb96692d19428648f10e6e2cc5d, type: 2}
+  - {fileID: 11400000, guid: cdba1aff7af4b47498b291bef00e7e91, type: 2}
+  - {fileID: 11400000, guid: 08fb433d174676849b498f0266e7176d, type: 2}
+  - {fileID: 11400000, guid: a6222b27f01353343a1f39f14a69da1f, type: 2}
+  - {fileID: 11400000, guid: 2fe1a30b10cacb7418fa2b6b4622a2a0, type: 2}
+  - {fileID: 11400000, guid: ad4b84e3d3fc927469b34c647e5059ef, type: 2}
   FMODEvents:
   - Guid:
-      Data1: 454309603
-      Data2: 1151886870
-      Data3: -1149605760
-      Data4: -137344148
-    Path: event:/BackGroundMusic
+      Data1: 1446263547
+      Data2: 1099689056
+      Data3: -1733212225
+      Data4: -719914852
+    Path: event:/Click
+  - Guid:
+      Data1: 1641284859
+      Data2: 1283469146
+      Data3: -339265613
+      Data4: 1159033862
+    Path: event:/Death
+  - Guid:
+      Data1: 984396712
+      Data2: 1201118928
+      Data3: -1427703914
+      Data4: 1622647830
+    Path: event:/Alavanca
+  - Guid:
+      Data1: -1163917840
+      Data2: 1239815319
+      Data3: -665942095
+      Data4: 1894082454
+    Path: event:/Win
+  - Guid:
+      Data1: -495645293
+      Data2: 1157444973
+      Data3: 1631941770
+      Data4: 1209984664
+    Path: event:/Gongo
+  - Guid:
+      Data1: 1944557174
+      Data2: 1137094562
+      Data3: -923165283
+      Data4: 747396810
+    Path: event:/Hey-yo
 --- !u!43 &2017413590
 Mesh:
   m_ObjectHideFlags: 0
