@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float minTimeToExplode;
     private float _currentMinTimeToExplode;
 
+    [SerializeField] private GameEvent explosionEvent;
+
     [SerializeField] private GameObject explosion;
 
     [SerializeField] private BoolVariable isPaused;
@@ -50,6 +52,7 @@ public class Projectile : MonoBehaviour
 
     public void Explosion()
     {
+        explosionEvent.Raise();
         PlayerInput e = Instantiate(explosion, transform.position, transform.rotation).GetComponent<PlayerInput>();
         e.SetID(_input.id);
         projectiles.Value.Remove(gameObject);

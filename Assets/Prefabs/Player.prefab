@@ -406,6 +406,7 @@ MonoBehaviour:
   meleeAttackObject: {fileID: 2636925191726703631}
   meleeAttackTime: 0.2
   meleeAttackDelay: 0.4
+  meleeAttack: {fileID: 11400000, guid: dda207ac680c40e4da411453e014ef5e, type: 2}
   healthCollider: {fileID: 5623905951260974862}
   playerWhoPaused: {fileID: 11400000, guid: f21de0c7f628afa469d47a1826b0a7f7, type: 2}
   pauseWasPressed: {fileID: 11400000, guid: ab51a297ec4b1fb4a8f22b710e8d6c7c, type: 2}

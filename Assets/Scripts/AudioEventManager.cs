@@ -51,5 +51,6 @@ public class AudioEventManager : MonoBehaviour, IGameEventListener
         }
 
         RuntimeManager.PlayOneShot(FMODEvents[eventIndex]);
+        
     }
 }

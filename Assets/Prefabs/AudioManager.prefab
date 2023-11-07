@@ -1,0 +1,208 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3426773973909409704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3426773973909409705}
+  - component: {fileID: 3426773973909409687}
+  - component: {fileID: 3426773973909409686}
+  m_Layer: 0
+  m_Name: Victory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3426773973909409705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426773973909409704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3426773973996358203}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3426773973909409687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426773973909409704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662e233fb5fdb6145947c7ef4a51e5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4da55d732a28aad4cad86f99227e8f48, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3426773973909409686}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &3426773973909409686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426773973909409704}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b3885e80bf783344844ad2e67bbf906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a6222b27f01353343a1f39f14a69da1f, type: 2}
+        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  instantiateOnAction: []
+  subAction:
+    m_PersistentCalls:
+      m_Calls: []
+  instantiateOnSubAction: []
+  destroyOnDisable: 0
+  timeToAction: 1
+  desableAfterTimer: 1
+--- !u!1 &3426773973996358202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3426773973996358203}
+  - component: {fileID: 3426773973996358200}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3426773973996358203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426773973996358202}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.073406, z: -3.2144008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3426773973909409705}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3426773973996358200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426773973996358202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8647a8a52568eba4ebb1674d187308bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Events:
+  - {fileID: 11400000, guid: 8fe14bb96692d19428648f10e6e2cc5d, type: 2}
+  - {fileID: 11400000, guid: cdba1aff7af4b47498b291bef00e7e91, type: 2}
+  - {fileID: 11400000, guid: 08fb433d174676849b498f0266e7176d, type: 2}
+  - {fileID: 11400000, guid: a6222b27f01353343a1f39f14a69da1f, type: 2}
+  - {fileID: 11400000, guid: 2fe1a30b10cacb7418fa2b6b4622a2a0, type: 2}
+  - {fileID: 11400000, guid: ad4b84e3d3fc927469b34c647e5059ef, type: 2}
+  - {fileID: 11400000, guid: c9ef37ad9d9dde441b1b97c08e013f14, type: 2}
+  - {fileID: 11400000, guid: dda207ac680c40e4da411453e014ef5e, type: 2}
+  - {fileID: 11400000, guid: 2d97abc4ae7a9c942bb8504f6a6cbd45, type: 2}
+  FMODEvents:
+  - Guid:
+      Data1: 1446263547
+      Data2: 1099689056
+      Data3: -1733212225
+      Data4: -719914852
+    Path: event:/Click
+  - Guid:
+      Data1: 1641284859
+      Data2: 1283469146
+      Data3: -339265613
+      Data4: 1159033862
+    Path: event:/Death
+  - Guid:
+      Data1: 984396712
+      Data2: 1201118928
+      Data3: -1427703914
+      Data4: 1622647830
+    Path: event:/Alavanca
+  - Guid:
+      Data1: -1163917840
+      Data2: 1239815319
+      Data3: -665942095
+      Data4: 1894082454
+    Path: event:/Win
+  - Guid:
+      Data1: -495645293
+      Data2: 1157444973
+      Data3: 1631941770
+      Data4: 1209984664
+    Path: event:/Gongo
+  - Guid:
+      Data1: 1944557174
+      Data2: 1137094562
+      Data3: -923165283
+      Data4: 747396810
+    Path: event:/Hey-yo
+  - Guid:
+      Data1: -202531162
+      Data2: 1325003455
+      Data3: -688583239
+      Data4: -1854091937
+    Path: event:/MenuMusic
+  - Guid:
+      Data1: -778050149
+      Data2: 1152562722
+      Data3: -1678372463
+      Data4: 2022792679
+    Path: event:/AtaqueCorpo
+  - Guid:
+      Data1: 1922091935
+      Data2: 1297620506
+      Data3: -1218317136
+      Data4: -36245412
+    Path: event:/PianoQuebrando

@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8dd228672a66dfa4c83c7d9c35031b7f, type: 2}
+  - {fileID: 2100000, guid: e812b30ee9dacf346a19b0c1787566ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   moveSpeed: 15
   rotationSpeed: 2.5
   minTimeToExplode: 0.15
+  explosionEvent: {fileID: 11400000, guid: 2d97abc4ae7a9c942bb8504f6a6cbd45, type: 2}
   explosion: {fileID: 1777974336920111292, guid: e1d8732512095034fb76dd3c08e0fcfb, type: 3}
   isPaused: {fileID: 11400000, guid: 933f4016c9ebe7c4f99d78f55ce8889e, type: 2}
 --- !u!114 &7452530735591642971

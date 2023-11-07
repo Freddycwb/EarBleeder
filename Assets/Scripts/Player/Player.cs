@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float meleeAttackTime;
     [SerializeField] private float meleeAttackDelay;
     private bool _attacking;
+    [SerializeField] private GameEvent meleeAttack;
 
     [SerializeField] private InvokeAfterCollision healthCollider;
 
@@ -110,6 +111,7 @@ public class Player : MonoBehaviour
         _attacking = true;
         health.layer = 9;
         meleeAttackObject.SetActive(true);
+        meleeAttack.Raise();
 
         yield return new WaitForSeconds(meleeAttackTime);
 
