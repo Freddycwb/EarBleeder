@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System;
 using UnityEngine;
 
@@ -34,6 +35,11 @@ namespace FMODUnity
             }
 
             return new EventReference { Path = path, Guid = GuidLookupDelegate(path) };
+        }
+
+        public void getPlaybackState(out PLAYBACK_STATE playbackState)
+        {
+            throw new NotImplementedException();
         }
 #else
         public override string ToString()

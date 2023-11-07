@@ -26,7 +26,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1500
+  Length: 1460
 --- !u!114 &-6583217543416591843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/FMOD/ScreamCutiesOficial/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638349535717383036
+  lastModified: 638349751628000990
   FileSizes:
   - Name: Desktop
     Value: 1132
@@ -179,7 +179,7 @@ MonoBehaviour:
   - {fileID: 4909892818556826183}
   StringsBanks:
   - {fileID: -4413079725037403343}
-  cacheTime: 638349535717383036
+  cacheTime: 638349751628000990
   cacheVersion: 131608
 --- !u!114 &2522213373928503778
 MonoBehaviour:
@@ -243,10 +243,10 @@ MonoBehaviour:
   Path: Assets/FMOD/ScreamCutiesOficial/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638349535717373038
+  lastModified: 638349751627980399
   FileSizes:
   - Name: Desktop
-    Value: 2411104
+    Value: 2412160
   Exists: 1
 --- !u!114 &5225332607387602876
 MonoBehaviour:
@@ -274,7 +274,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 5016
+  Length: 4166
 --- !u!114 &6777833501367099165
 MonoBehaviour:
   m_ObjectHideFlags: 0
