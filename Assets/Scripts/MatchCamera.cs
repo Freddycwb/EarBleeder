@@ -27,6 +27,7 @@ public class MatchCamera : MonoBehaviour
     private void OnEnable()
     {
         _backingToLobby = false;
+        projectiles.Value.Clear();
     }
 
     void Start()
