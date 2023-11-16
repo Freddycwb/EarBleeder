@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class OptionsSelector : MonoBehaviour
@@ -14,6 +13,11 @@ public class OptionsSelector : MonoBehaviour
     private int _currentBtnSelected;
 
     public void SetInput()
+    {
+        _input = input.GetComponent<IInput>();
+    }
+
+    public void SetInput(GameObject input)
     {
         _input = input.GetComponent<IInput>();
     }
@@ -49,7 +53,7 @@ public class OptionsSelector : MonoBehaviour
 
     private void ClickBtn()
     {
-        if (_input.aButtonDown || Input.GetKeyDown(KeyCode.Return))
+        if ((_input.aButtonDown || Input.GetKeyDown(KeyCode.Return)) && enabled)
         {
             btns[_currentBtnSelected].onClick.Invoke();
             _btnAnimators[_currentBtnSelected].Play("ButtonClick", -1, 0f);
@@ -58,7 +62,7 @@ public class OptionsSelector : MonoBehaviour
 
     public void SelectBtn(int id)
     {
-        if (id == _currentBtnSelected) { return; }
+        if (id == _currentBtnSelected || _btnAnimators.Count <= 0) { return; }
         _btnAnimators[_currentBtnSelected].Play("ButtonNoOverlap");
         if (id >= btns.Count)
         {

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3019741827887599008}
   - component: {fileID: 3019741827887599015}
-  - component: {fileID: 3019741827887599009}
   - component: {fileID: 3019741827887599010}
   - component: {fileID: 1428688890}
   m_Layer: 0
@@ -52,6 +51,7 @@ MonoBehaviour:
   roundSetted: {fileID: 11400000, guid: a170f97df3ac8ad42a2702094e16d47a, type: 2}
   roundStart: {fileID: 11400000, guid: 2fe1a30b10cacb7418fa2b6b4622a2a0, type: 2}
   roundEnd: {fileID: 11400000, guid: ad4b84e3d3fc927469b34c647e5059ef, type: 2}
+  goMainMenu: {fileID: 11400000, guid: 5e23b4078dc789b43bc51f909d38cb64, type: 2}
   lastIdScored: {fileID: 11400000, guid: 035b564599b022844be4a7029c3e7a9d, type: 2}
   playerScores: {fileID: 11400000, guid: 48b20d3fefe4508409d6e43246a37fb8, type: 2}
   scoreToWin: 5
@@ -61,19 +61,6 @@ MonoBehaviour:
   playerSlot: {fileID: 4339257221061030593, guid: c9126de7024f97941a70f24def5c60c0, type: 3}
   currentStage: {fileID: 0}
   stages: {fileID: 11400000, guid: 100bff9a364bea64b8db3b928b39acc2, type: 2}
---- !u!114 &3019741827887599009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3019741827887599014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2fac6747f226a44f9da5bf0f870786b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _id: -1
 --- !u!114 &3019741827887599010
 MonoBehaviour:
   m_ObjectHideFlags: 0

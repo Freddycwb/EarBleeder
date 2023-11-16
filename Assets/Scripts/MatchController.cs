@@ -11,6 +11,7 @@ public class MatchController : MonoBehaviour
     [SerializeField] private GameEvent roundSetted;
     [SerializeField] private GameEvent roundStart;
     [SerializeField] private GameEvent roundEnd;
+    [SerializeField] private GameEvent goMainMenu;
 
     [SerializeField] private IntVariable lastIdScored;
     [SerializeField] private IntListVariable playerScores;
@@ -34,10 +35,15 @@ public class MatchController : MonoBehaviour
 
     private bool _matchOver;
 
-    void Start()
+    private void OnEnable()
     {
         SetStartVariables();
         CreatePlayerSlot();
+        atLobby = true;
+        controlsNotPlaying.Clear();
+        PlayerInput p = gameObject.AddComponent<PlayerInput>();
+        p.SetID(-1);
+        controlsNotPlaying.Add(p);
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             PlayerConnected(i);
@@ -53,7 +59,6 @@ public class MatchController : MonoBehaviour
         controlsNumber.Value = 1;
         playersNumber.Value = 0;
         players.Value.Clear();
-        controlsNotPlaying.Add(GetComponent<PlayerInput>());
     }
 
     private void CreatePlayerSlot()
@@ -126,10 +131,13 @@ public class MatchController : MonoBehaviour
     {
         if (atLobby)
         {
+            Debug.Log("no lobby");
             for (int i = 0; i < controlsNotPlaying.Count; i++)
             {
+                Debug.Log("verificando controle " + i);
                 if (controlsNotPlaying[i].aButtonUp)
                 {
+                    Debug.Log("controle " + i + " apertou a");
                     PlayerJoin(i);
                 }
             }
@@ -245,6 +253,7 @@ public class MatchController : MonoBehaviour
             }
         }
         matchStart.Raise();
+        StopCoroutine("CheckReadyAndNewJoystick");
         StartCoroutine("StartRound");
     }
 
@@ -263,6 +272,10 @@ public class MatchController : MonoBehaviour
 
     public void Death()
     {
+        if (!enabled)
+        {
+            return;
+        }
         SetScores();
         CheckIsMatchOver();
     }
@@ -347,6 +360,29 @@ public class MatchController : MonoBehaviour
             slot.SetPlayerPosition(currentStage.transform.GetChild(0).GetChild(i).position);
             i++;
         }
+    }
+
+    public void ToMainMenu()
+    {
+        StartCoroutine("ResetController");
+    }
+
+    private IEnumerator ResetController()
+    {
+        yield return new WaitForSeconds(0.8f);
+        goMainMenu.Raise();
+        StopAllCoroutines();
+        SetStartVariables();
+        atLobby = false;
+        Destroy(currentStage);
+        currentStage = Instantiate(stages.Value[0]);
+        foreach (PlayerSlot slot in _playerSlots)
+        {
+            Destroy(slot.gameObject);
+        }
+        playerSlotsInGame.Clear();
+        _playerSlots.Clear();
+        enabled = false;
     }
 
     private void OnDestroy()

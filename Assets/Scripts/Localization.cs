@@ -38,6 +38,12 @@ public class Localization : MonoBehaviour
         _hasLoaded = true;
     }
 
+    public void ChangeLanguage(string language)
+    {
+        _currentLanguage = language;
+        UpdateLanguage();
+    }
+
     public static string Localize(string key)
     {
         if (!_hasLoaded)

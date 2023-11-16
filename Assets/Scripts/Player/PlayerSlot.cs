@@ -284,6 +284,10 @@ public class PlayerSlot : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (_currentPlayer != null)
+        {
+            Destroy(_currentPlayer);
+        }
         if (skinSelector != null) skinSelector.skinHasBeenSelected -= SetSkin;
     }
 }
