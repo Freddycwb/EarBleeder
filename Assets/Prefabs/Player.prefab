@@ -402,6 +402,7 @@ MonoBehaviour:
   dashHeight: 0.3
   dashInvincibleTime: 0.2
   dashDelay: 0.4
+  dash: {fileID: 11400000, guid: 9689bfda56c80ab4197b6a51f8141a03, type: 2}
   projectileSpawnPoint: {fileID: 3253705763089260795}
   meleeAttackObject: {fileID: 2636925191726703631}
   meleeAttackTime: 0.2

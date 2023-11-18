@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5073393004984964737}
-  - component: {fileID: -1062219899169888129}
+  - component: {fileID: 7922448815682013243}
+  - component: {fileID: -5782692942314906718}
   - component: {fileID: 5073393004984964734}
   - component: {fileID: 5073393004984964735}
   m_Layer: 0
-  m_Name: RoundEndSound
+  m_Name: DashSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +35,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1062219899169888129
+--- !u!114 &7922448815682013243
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,6 +51,21 @@ MonoBehaviour:
   masterVolume: {fileID: 11400000, guid: 2db33d6364c1ddc46b86e4eef7741509, type: 2}
   musicVolume: {fileID: 11400000, guid: 8846dc2a068d65d47aa265b8b22fc937, type: 2}
   sfxVolume: {fileID: 11400000, guid: 7d2ec0a7ccee0574bb8c611546dc01d1, type: 2}
+--- !u!114 &-5782692942314906718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073393004984964732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3010f20843e2fbe47ab2e9fa1ae4ee3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: c11387c2a4d9833429d85288b7797a95, type: 3}
+  - {fileID: 8300000, guid: d9dfbd255bf672e4e8914cc0dc54ea83, type: 3}
 --- !u!114 &5073393004984964734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,7 +99,7 @@ MonoBehaviour:
       m_Calls: []
   instantiateOnSubAction: []
   destroyOnDisable: 1
-  timeToAction: 2.5
+  timeToAction: 2
   desableAfterTimer: 1
 --- !u!82 &5073393004984964735
 AudioSource:
@@ -95,8 +111,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dc21fd8d803f7f344920ec6a6de8964f, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

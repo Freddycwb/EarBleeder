@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float dashInvincibleTime;
     [SerializeField] private float dashDelay;
     private bool _dashing;
+    [SerializeField] private GameEvent dash;
 
     private GameObject _projectile;
     [SerializeField] private Transform projectileSpawnPoint;
@@ -144,6 +145,7 @@ public class Player : MonoBehaviour
     {
         _dashing = true;
         health.layer = 9;
+        dash.Raise();
 
         _rb.velocity = Vector3.zero;
         Vector3 dir = new Vector3(transform.forward.x, dashHeight, transform.forward.z);
