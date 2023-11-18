@@ -8,16 +8,16 @@ public class AudioEventManager : MonoBehaviour, IGameEventListener
 {
     [Tooltip("Events to register with.")]
     public GameEvent[] Events;
+    public GameObject[] sounds;
+    //public EventReference[] FMODEvents;
 
-    public EventReference[] FMODEvents;
-
-    private void Awake()
-    {
-        if (Events.Length > FMODEvents.Length)
-        {
-            Debug.LogError($"ERROR: The size of the Events array is larger than the size of the FMODEvents array in object {gameObject.name}. You probably forgot to add an FMODEvent.");
-        }
-    }
+    //private void Awake()
+    //{
+    //    if (Events.Length > FMODEvents.Length)
+    //    {
+    //        Debug.LogError($"ERROR: The size of the Events array is larger than the size of the FMODEvents array in object {gameObject.name}. You probably forgot to add an FMODEvent.");
+    //    }
+    //}
 
     private void OnEnable()
     {
@@ -39,7 +39,7 @@ public class AudioEventManager : MonoBehaviour, IGameEventListener
     {
         int eventIndex = Array.IndexOf(Events, parameters[0] as GameEvent);
 
-        if (eventIndex > FMODEvents.Length)
+        if (eventIndex > sounds.Length)
         {
             Debug.LogError($"ERROR: The size of the Events array is larger than the size of the FMODEvents array in object {gameObject.name}. You probably forgot to add an FMODEvent.");
             return;
@@ -50,7 +50,8 @@ public class AudioEventManager : MonoBehaviour, IGameEventListener
             return;
         }
 
-        RuntimeManager.PlayOneShot(FMODEvents[eventIndex]);
+        Instantiate(sounds[eventIndex]);
+        //RuntimeManager.PlayOneShot(FMODEvents[eventIndex]);
         
     }
 }
