@@ -6650,6 +6650,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1882561300, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
+      propertyPath: _key
+      value: _artists
+      objectReference: {fileID: 0}
     - target: {fileID: 27964954437127864, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6966,7 +6970,9 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: eedb30a98adfd3e48915ce1273323734, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 95260188, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
+    - {fileID: 80508886, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4864e1c9d23bef148997fb03a2cf5d9e, type: 3}
 --- !u!1001 &2960805845734059153
 PrefabInstance:
