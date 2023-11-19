@@ -13,6 +13,8 @@ public class MatchController : MonoBehaviour
     [SerializeField] private GameEvent roundEnd;
     [SerializeField] private GameEvent goMainMenu;
 
+    private bool endingRound;
+
     [SerializeField] private IntVariable lastIdScored;
     [SerializeField] private IntListVariable playerScores;
     [SerializeField] private int scoreToWin;
@@ -258,6 +260,7 @@ public class MatchController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SetStage();
+        endingRound = false;
         roundSetted.Raise();
         yield return new WaitForSeconds(3.5f);
         foreach (PlayerSlot slot in playerSlotsInGame)
@@ -317,8 +320,9 @@ public class MatchController : MonoBehaviour
                 playersAlive++;
             }
         }
-        if (playersAlive <= 1)
+        if (playersAlive <= 1 && !endingRound)
         {
+            endingRound = true;
             StartCoroutine("FinishRound");
         }
     }
@@ -326,9 +330,24 @@ public class MatchController : MonoBehaviour
     public IEnumerator FinishRound()
     {
         yield return new WaitForSeconds(1.5f);
-        roundEnd.Raise();
-        yield return new WaitForSeconds(0.3f);
-        StartCoroutine("StartRound");
+        for (int i = 0; i < players.Value.Count; i++)
+        {
+            if (players.Value[i].activeSelf)
+            {
+                playerScores.Value[i]++;
+            }
+        }
+        CheckIsMatchOver();
+        if (_matchOver)
+        {
+            StopCoroutine("FinishRound");
+        }
+        else
+        {
+            roundEnd.Raise();
+            yield return new WaitForSeconds(0.3f);
+            StartCoroutine("StartRound");
+        }
     }
 
     public IEnumerator FinishMatch()
