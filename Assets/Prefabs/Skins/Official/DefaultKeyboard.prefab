@@ -67,6 +67,7 @@ MonoBehaviour:
   limbsMaterial: {fileID: 2100000, guid: bd26b69ad99f9a54db6e6f265e27b9a7, type: 2}
   victoryEyes: {fileID: 2100000, guid: 4aa29a136b1211a41adc89c4fe61868b, type: 2}
   loseSprite: {fileID: 21300000, guid: 42829d5ea9d1ebf489c5846dbe4e2314, type: 3}
+  scoreSprite: {fileID: 21300000, guid: ed7d4e90712dcbd4a950f2c12f6399b4, type: 3}
 --- !u!114 &1848879242496806146
 MonoBehaviour:
   m_ObjectHideFlags: 0

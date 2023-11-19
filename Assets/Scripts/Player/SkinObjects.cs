@@ -9,4 +9,5 @@ public class SkinObjects : MonoBehaviour
     public Material limbsMaterial;
     public Material victoryEyes;
     public Sprite loseSprite;
+    public Sprite scoreSprite;
 }

@@ -131,13 +131,10 @@ public class MatchController : MonoBehaviour
     {
         if (atLobby)
         {
-            Debug.Log("no lobby");
             for (int i = 0; i < controlsNotPlaying.Count; i++)
             {
-                Debug.Log("verificando controle " + i);
                 if (controlsNotPlaying[i].aButtonUp)
                 {
-                    Debug.Log("controle " + i + " apertou a");
                     PlayerJoin(i);
                 }
             }
@@ -262,7 +259,7 @@ public class MatchController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SetStage();
         roundSetted.Raise();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3.5f);
         foreach (PlayerSlot slot in playerSlotsInGame)
         {
             slot.FreePlayer();
