@@ -8,6 +8,7 @@ using UnityEngine.Events;
 public class InvokeAfterCollision : InvokeAfter
 {
     [SerializeField] private List<string> tags = new List<string>();
+    [SerializeField] private bool checkOnEnableOnly;
     private GameObject lastCollision;
 
     public GameObject GetLastCollision()
@@ -19,8 +20,11 @@ public class InvokeAfterCollision : InvokeAfter
     {
         if (tags.Count == 0 || tags.Contains(other.tag))
         {
-            lastCollision = other.gameObject;
-            CallAction();
+            if (!checkOnEnableOnly || (checkOnEnableOnly && enabled))
+            {
+                lastCollision = other.gameObject;
+                CallAction();
+            }
         }
     }
 
@@ -28,7 +32,10 @@ public class InvokeAfterCollision : InvokeAfter
     {
         if (tags.Count == 0 || tags.Contains(other.tag))
         {
-            CallSubAction();
+            if (!checkOnEnableOnly || (checkOnEnableOnly && enabled))
+            {
+                CallSubAction();
+            }
         }
     }
 
@@ -36,8 +43,11 @@ public class InvokeAfterCollision : InvokeAfter
     {
         if (tags.Count == 0 || tags.Contains(other.gameObject.tag))
         {
-            lastCollision = other.gameObject;
-            CallAction();
+            if (!checkOnEnableOnly || (checkOnEnableOnly && enabled))
+            {
+                lastCollision = other.gameObject;
+                CallAction();
+            }
         }
     }
 
@@ -45,7 +55,10 @@ public class InvokeAfterCollision : InvokeAfter
     {
         if (tags.Count == 0 || tags.Contains(other.gameObject.tag))
         {
-            CallSubAction();
+            if (!checkOnEnableOnly || (checkOnEnableOnly && enabled))
+            {
+                CallSubAction();
+            }
         }
     }
 }
