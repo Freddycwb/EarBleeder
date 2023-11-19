@@ -19,7 +19,7 @@ public class OutOfBoundsHP : MonoBehaviour
     public void SetOutOfBounds(bool value)
     {
         _outOfBounds = value;
-        if (value)
+        if (value && gameObject.layer == 6)
         {
             smoke.Play();
         }
@@ -31,7 +31,7 @@ public class OutOfBoundsHP : MonoBehaviour
 
     void Update()
     {
-        _currentTimeToDie += _outOfBounds ? Time.deltaTime : -Time.deltaTime;
+        _currentTimeToDie += _outOfBounds && gameObject.layer == 6 ? Time.deltaTime : -Time.deltaTime;
         _currentTimeToDie = Mathf.Clamp(_currentTimeToDie, 0, timeToDie);
         if (_currentTimeToDie >= timeToDie)
         {

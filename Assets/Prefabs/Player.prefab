@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathInvoke: {fileID: 8790912156041050885}
-  timeToDie: 4
+  timeToDie: 2.5
   smoke: {fileID: 2890679293359511697}
 --- !u!1 &4575155568736937924
 GameObject:
