@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     private Rigidbody _rb;
     [SerializeField] private GameObject health;
 
+    [SerializeField] private GameEvent death;
+    [SerializeField] private GameObject deathParticle;
+
     [SerializeField] private IntVariable lastIdScored;
 
     [SerializeField] private float maxSpeed;
@@ -24,6 +27,8 @@ public class Player : MonoBehaviour
 
     private GameObject _projectile;
     [SerializeField] private Transform projectileSpawnPoint;
+    [SerializeField] private float delayToShoot;
+    private float _currentDelayToShoot;
     private bool _shooting;
 
     [SerializeField] private GameObject meleeAttackObject;
@@ -73,7 +78,7 @@ public class Player : MonoBehaviour
         Dash();
         MeleeAttack();
 
-        if (_input.fireButtonDown)
+        if (_input.fireButtonDown && _currentDelayToShoot <= 0)
         {
             Fire();
             _shooting = true;
@@ -81,6 +86,10 @@ public class Player : MonoBehaviour
         else if (_input.fireButtonUp)
         {
             _shooting = false;
+        }
+        else
+        {
+            _currentDelayToShoot -= Time.deltaTime;
         }
     }
 
@@ -103,6 +112,7 @@ public class Player : MonoBehaviour
 
     private void Fire()
     {
+        _currentDelayToShoot = delayToShoot;
         PlayerInput p = Instantiate(_projectile, projectileSpawnPoint.position, projectileSpawnPoint.rotation).GetComponent<PlayerInput>();
         p.SetID(_input.id);
     }
@@ -126,7 +136,7 @@ public class Player : MonoBehaviour
 
     private void MeleeAttack()
     {
-        if (_input.bButtonDown && !_attacking)
+        if (_input.bButtonDown && !_attacking && !_shooting)
         {
             StartCoroutine("MeleeAttackCoroutine");
         }
@@ -162,16 +172,30 @@ public class Player : MonoBehaviour
 
     private void Dash()
     {
-        if (_input.aButtonDown && !_dashing)
+        if (_input.aButtonDown && !_dashing && !_shooting)
         {
             StartCoroutine("DashCoroutine");
         }
     }
 
-    public void SetLastIdScored()
+    public void Death()
     {
-        if (healthCollider.GetLastCollision() == null || healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null) return;
-        lastIdScored.Value = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().id == _input.id ?
-            -2 : healthCollider.GetLastCollision().GetComponentInParent<IInput>().id;
+        if (healthCollider.GetLastCollision() == null || healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>() == null)
+        {
+            gameObject.SetActive(false);
+            death.Raise();
+            Instantiate(deathParticle, transform.position, transform.rotation);
+        }
+        else
+        {
+            bool selfKill = healthCollider.GetLastCollision().GetComponentInParent<PlayerInput>().id == _input.id;
+            lastIdScored.Value = selfKill ? -2 : healthCollider.GetLastCollision().GetComponentInParent<IInput>().id;
+            if (!selfKill)
+            {
+                gameObject.SetActive(false);
+                death.Raise();
+                Instantiate(deathParticle, transform.position, transform.rotation);
+            }
+        }
     }
 }

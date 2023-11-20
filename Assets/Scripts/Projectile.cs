@@ -11,8 +11,6 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float minTimeToExplode;
-    private float _currentMinTimeToExplode;
 
     [SerializeField] private GameEvent explosionEvent;
 
@@ -24,20 +22,15 @@ public class Projectile : MonoBehaviour
     {
         _input = GetComponent<IInput>();
         projectiles.Value.Add(gameObject);
-        _currentMinTimeToExplode = minTimeToExplode;
     }
 
     void Update()
     {
         if (isPaused.Value) { return; }
         HorizontalMove();
-        if (!_input.fireButton && _currentMinTimeToExplode < 0)
+        if (!_input.fireButton)
         {
             Explosion();
-        }
-        else
-        {
-            _currentMinTimeToExplode -= Time.deltaTime;
         }
     }
 

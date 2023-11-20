@@ -130,6 +130,7 @@ MonoBehaviour:
   destroyOnDisable: 0
   tags:
   - Death
+  checkOnEnableOnly: 0
 --- !u!114 &1292533863962306826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   destroyOnDisable: 0
   tags:
   - Bounds
+  checkOnEnableOnly: 0
 --- !u!114 &6372829082068368399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,6 +396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 3915965432219568370}
+  death: {fileID: 11400000, guid: cdba1aff7af4b47498b291bef00e7e91, type: 2}
+  deathParticle: {fileID: 8000708592428606942, guid: ce8cf4e1d1b481c488cbc9a52a2d7135, type: 3}
   lastIdScored: {fileID: 11400000, guid: 035b564599b022844be4a7029c3e7a9d, type: 2}
   maxSpeed: 7
   maxAccel: 0.5
@@ -404,6 +408,7 @@ MonoBehaviour:
   dashDelay: 0.4
   dash: {fileID: 11400000, guid: 9689bfda56c80ab4197b6a51f8141a03, type: 2}
   projectileSpawnPoint: {fileID: 3253705763089260795}
+  delayToShoot: 0.35
   meleeAttackObject: {fileID: 2636925191726703631}
   meleeAttackTime: 0.2
   meleeAttackDelay: 0.4
@@ -445,7 +450,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6654887513521930297}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: SetLastIdScored
+        m_MethodName: Death
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -455,32 +460,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6654887513521930299}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: cdba1aff7af4b47498b291bef00e7e91, type: 2}
-        m_TargetAssemblyTypeName: GameEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  instantiateOnAction:
-  - {fileID: 8000708592428606942, guid: ce8cf4e1d1b481c488cbc9a52a2d7135, type: 3}
+  instantiateOnAction: []
   subAction:
     m_PersistentCalls:
       m_Calls: []
