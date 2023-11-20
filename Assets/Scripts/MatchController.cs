@@ -13,7 +13,8 @@ public class MatchController : MonoBehaviour
     [SerializeField] private GameEvent roundEnd;
     [SerializeField] private GameEvent goMainMenu;
 
-    private bool endingRound;
+    private bool _endingRound;
+    private bool _firstRound;
 
     [SerializeField] private IntVariable lastIdScored;
     [SerializeField] private IntListVariable playerScores;
@@ -252,6 +253,7 @@ public class MatchController : MonoBehaviour
             }
         }
         matchStart.Raise();
+        _firstRound = true;
         StopCoroutine("CheckReadyAndNewJoystick");
         StartCoroutine("StartRound");
     }
@@ -260,7 +262,7 @@ public class MatchController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         SetStage();
-        endingRound = false;
+        _endingRound = false;
         roundSetted.Raise();
         yield return new WaitForSeconds(3.5f);
         foreach (PlayerSlot slot in playerSlotsInGame)
@@ -320,9 +322,9 @@ public class MatchController : MonoBehaviour
                 playersAlive++;
             }
         }
-        if (playersAlive <= 1 && !endingRound)
+        if (playersAlive <= 1 && !_endingRound)
         {
-            endingRound = true;
+            _endingRound = true;
             StartCoroutine("FinishRound");
         }
     }
@@ -369,7 +371,15 @@ public class MatchController : MonoBehaviour
     private void SetStage()
     {
         Destroy(currentStage);
-        currentStage = Instantiate(stages.Value[Random.Range(1, stages.Value.Count)]);
+        if (_firstRound)
+        {
+            currentStage = Instantiate(stages.Value[1]);
+            _firstRound = false;
+        }
+        else
+        {
+            currentStage = Instantiate(stages.Value[Random.Range(2, stages.Value.Count)]);
+        }
         int i = 0;
         foreach (PlayerSlot slot in playerSlotsInGame)
         {
