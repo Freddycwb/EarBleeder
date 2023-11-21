@@ -23,7 +23,7 @@ public class MovePlayerSlot : MonoBehaviour
 
     private void MoveSlot()
     {
-        float x = -range / 2 + (playerSlotID * range) / (controlsNumber.Value + 1);
+        float x = -range / 2 + (playerSlotID * range) / (Mathf.Clamp(controlsNumber.Value + 1, 0, 5));
         transform.position =  Vector3.Slerp(transform.position, new Vector3(x, 0, -3), Time.time * speed * Time.deltaTime);
     }
 }

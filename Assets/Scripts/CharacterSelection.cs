@@ -1,11 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 using UnityEngine;
-using UnityEngine.Windows;
-using static UnityEditorInternal.ReorderableList;
 
 public class CharacterSelection : MonoBehaviour
 {

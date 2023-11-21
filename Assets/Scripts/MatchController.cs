@@ -66,6 +66,10 @@ public class MatchController : MonoBehaviour
 
     private void CreatePlayerSlot()
     {
+        if (_playerSlots.Count >= 4)
+        {
+            return;
+        }
         PlayerSlot p = Instantiate(playerSlot, new Vector3(0, 0, -3), playerSlot.transform.rotation).GetComponent<PlayerSlot>();
         p.leave += PlayerLeave;
         p.SetID(controlsNumber.Value);
@@ -284,15 +288,15 @@ public class MatchController : MonoBehaviour
 
     private void SetScores()
     {
-        if (lastIdScored.Value == -2) return;
-        for (int i = 0; i < playerSlotsInGame.Count; i++)
-        {
-            if (playerSlotsInGame[i].GetComponent<IInput>().id == lastIdScored.Value)
-            {
-                playerScores.Value[i]++;
-                lastIdScored.Value = -2;
-            }
-        }
+        //if (lastIdScored.Value == -2) return;
+        //for (int i = 0; i < playerSlotsInGame.Count; i++)
+        //{
+        //    if (playerSlotsInGame[i].GetComponent<IInput>().id == lastIdScored.Value)
+        //    {
+        //        playerScores.Value[i]++;
+        //        lastIdScored.Value = -2;
+        //    }
+        //}
     }
 
     private void CheckIsMatchOver()

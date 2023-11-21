@@ -121,6 +121,7 @@ MonoBehaviour:
   destroyOnDisable: 0
   tags:
   - Death
+  checkOnEnableOnly: 0
 --- !u!114 &1467842515223591502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +263,6 @@ GameObject:
   - component: {fileID: 6741166218611143325}
   - component: {fileID: 917650878798977364}
   - component: {fileID: 5026111239497408953}
-  - component: {fileID: 7747757069985967866}
   m_Layer: 0
   m_Name: LeverBody
   m_TagString: Untagged
@@ -336,20 +336,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7747757069985967866
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2207152204549784815}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6917767872438709260
 GameObject:
   m_ObjectHideFlags: 0
@@ -361,7 +347,6 @@ GameObject:
   - component: {fileID: 4429522520281232901}
   - component: {fileID: 3347390246577763699}
   - component: {fileID: 7019389130614602563}
-  - component: {fileID: 9117217022222824036}
   m_Layer: 0
   m_Name: LeverHead
   m_TagString: Untagged
@@ -434,19 +419,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &9117217022222824036
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6917767872438709260}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7517419319310944755
 GameObject:
   m_ObjectHideFlags: 0
