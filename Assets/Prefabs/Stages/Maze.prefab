@@ -38,8 +38,8 @@ Transform:
   - {fileID: 9070784880152474749}
   - {fileID: 7760782626817042298}
   - {fileID: 8943675539091653240}
-  m_Father: {fileID: 294694605663395267}
-  m_RootOrder: 8
+  m_Father: {fileID: 1798171241620309895}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &2468639110500092673
 MonoBehaviour:
@@ -8003,7 +8003,6 @@ GameObject:
   - component: {fileID: 5892703295479779993}
   - component: {fileID: 6747105960867359086}
   - component: {fileID: 4825173864606296205}
-  - component: {fileID: 747811713006716118}
   m_Layer: 0
   m_Name: MovingDoor
   m_TagString: Untagged
@@ -8026,8 +8025,8 @@ Transform:
   - {fileID: 4100710080401571348}
   - {fileID: 1108755118892635009}
   - {fileID: 4421544907687451455}
-  m_Father: {fileID: 294694605663395267}
-  m_RootOrder: 6
+  m_Father: {fileID: 1798171241620309895}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7779623563841420729
 MonoBehaviour:
@@ -8338,14 +8337,50 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!95 &747811713006716118
+--- !u!1 &5338530802988078711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1798171241620309895}
+  - component: {fileID: 4749706209789554343}
+  - component: {fileID: 4131936661000266820}
+  m_Layer: 0
+  m_Name: MovableWalls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1798171241620309895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338530802988078711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 571073204160025969}
+  - {fileID: 5161684521478313871}
+  - {fileID: 5599394819283942348}
+  m_Father: {fileID: 294694605663395267}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4749706209789554343
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5229279326171446402}
+  m_GameObject: {fileID: 5338530802988078711}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d796ca2f6667ceb4bbc6d0743e14f0e8, type: 2}
@@ -8359,6 +8394,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4131936661000266820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338530802988078711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77232625fbbd2741886c4e847e22fa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5475900304112579331
 GameObject:
   m_ObjectHideFlags: 0
@@ -10599,8 +10646,8 @@ Transform:
   - {fileID: 8782978707177618937}
   - {fileID: 4745672711179252906}
   - {fileID: 6138916743354433567}
-  m_Father: {fileID: 294694605663395267}
-  m_RootOrder: 7
+  m_Father: {fileID: 1798171241620309895}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &3155380866715085758
 MonoBehaviour:
@@ -11294,9 +11341,7 @@ Transform:
   - {fileID: 7503747865526281469}
   - {fileID: 6849497873543406987}
   - {fileID: 5660787754979201039}
-  - {fileID: 571073204160025969}
-  - {fileID: 5161684521478313871}
-  - {fileID: 5599394819283942348}
+  - {fileID: 1798171241620309895}
   m_Father: {fileID: 1655118505404706294}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16993,8 +17038,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 4131936661000266820}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchWallPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchWallsPosition, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
@@ -25163,8 +25220,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 4131936661000266820}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchWallPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchWallsPosition, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
@@ -29901,8 +29970,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 4131936661000266820}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchWallPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchWallsPosition, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
@@ -31221,8 +31302,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
       propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 4131936661000266820}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SwitchWallPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 4949392913919636118, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SwitchWallsPosition, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe136c0034b0394dbffd6c9ad4d3a67, type: 3}

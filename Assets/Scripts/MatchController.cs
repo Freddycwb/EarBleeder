@@ -257,6 +257,7 @@ public class MatchController : MonoBehaviour
             }
         }
         matchStart.Raise();
+        Cursor.lockState = CursorLockMode.Locked;
         _firstRound = true;
         StopCoroutine("CheckReadyAndNewJoystick");
         StartCoroutine("StartRound");
@@ -359,6 +360,7 @@ public class MatchController : MonoBehaviour
     public IEnumerator FinishMatch()
     {
         matchEnd.Raise();
+        Cursor.lockState = CursorLockMode.None;
         yield return new WaitForSeconds(0.8f);
         atLobby = true;
         Destroy(currentStage);
@@ -401,6 +403,7 @@ public class MatchController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.8f);
         goMainMenu.Raise();
+        Cursor.lockState = CursorLockMode.None;
         StopAllCoroutines();
         SetStartVariables();
         atLobby = false;
