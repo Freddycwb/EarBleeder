@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: Assets/FMOD/ScreamCutiesOficial/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638348200174557008
+  lastModified: 638349535717383036
   FileSizes:
   - Name: Desktop
     Value: 1132
@@ -179,7 +179,7 @@ MonoBehaviour:
   - {fileID: 4909892818556826183}
   StringsBanks:
   - {fileID: -4413079725037403343}
-  cacheTime: 638349808288666796
+  cacheTime: 638358372173946335
   cacheVersion: 131608
 --- !u!114 &2522213373928503778
 MonoBehaviour:
@@ -243,7 +243,7 @@ MonoBehaviour:
   Path: Assets/FMOD/ScreamCutiesOficial/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638349808288666796
+  lastModified: 638358372173946335
   FileSizes:
   - Name: Desktop
     Value: 2412160
