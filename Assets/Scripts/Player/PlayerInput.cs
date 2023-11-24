@@ -163,7 +163,7 @@ public class PlayerInput : MonoBehaviour, IInput
             {
                 if (_id <= Gamepad.all.Count - 1)
                 {
-                    click = Gamepad.all[_id].buttonSouth.wasPressedThisFrame;
+                    click = Gamepad.all[_id].buttonSouth.wasPressedThisFrame || Gamepad.all[_id].rightTrigger.wasPressedThisFrame;
                 }
             }
 
@@ -191,7 +191,7 @@ public class PlayerInput : MonoBehaviour, IInput
             {
                 if (_id <= Gamepad.all.Count - 1)
                 {
-                    click = Gamepad.all[_id].buttonSouth.isPressed;
+                    click = Gamepad.all[_id].buttonSouth.isPressed || Gamepad.all[_id].rightTrigger.isPressed;
                 }
             }
 

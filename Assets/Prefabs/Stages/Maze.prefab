@@ -16193,6 +16193,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 2.9290009
       objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 6554
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime2
+      value: 62258
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime3
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key2.a
+      value: 0.48235294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key3.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197677923805343678, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2197677923973175190, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: ShapeModule.radius.value
       value: 1.25
@@ -17285,6 +17317,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1655118505404706294}
     m_Modifications:
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5073393004984964732, guid: 5bda7154d40e8294cbb71415d78030ec, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8000708592428606942, guid: 714ad19435c2975419c486fbd31fa90b, type: 3}
     - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
       propertyPath: destination
       value: 
@@ -22159,19 +22199,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.04249667
+      value: 0.00723961
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.72358775
+      value: -0.72237784
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0052393554
+      value: 0.04220152
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.68890303
+      value: 0.69017166
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22179,7 +22219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -87.28699
+      value: 87.28699
       objectReference: {fileID: 0}
     - target: {fileID: 2197677923805343677, guid: d460d98a29985b34cb56e8a8de58743d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -24813,6 +24853,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1655118505404706294}
     m_Modifications:
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5073393004984964732, guid: 5bda7154d40e8294cbb71415d78030ec, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8000708592428606942, guid: 714ad19435c2975419c486fbd31fa90b, type: 3}
     - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
       propertyPath: destination
       value: 

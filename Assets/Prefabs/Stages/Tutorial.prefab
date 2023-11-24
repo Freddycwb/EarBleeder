@@ -18525,6 +18525,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1655118505404706294}
     m_Modifications:
     - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5073393004984964732, guid: 5bda7154d40e8294cbb71415d78030ec, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8000708592428606942, guid: 714ad19435c2975419c486fbd31fa90b, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
       propertyPath: destination
       value: 
       objectReference: {fileID: 738154325178943995}
@@ -21403,6 +21411,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1655118505404706294}
     m_Modifications:
     - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5073393004984964732, guid: 5bda7154d40e8294cbb71415d78030ec, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8000708592428606942, guid: 714ad19435c2975419c486fbd31fa90b, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
       propertyPath: destination
       value: 
       objectReference: {fileID: 801158703464105296}
@@ -23985,6 +24001,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1655118505404706294}
     m_Modifications:
     - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5073393004984964732, guid: 5bda7154d40e8294cbb71415d78030ec, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8000708592428606942, guid: 714ad19435c2975419c486fbd31fa90b, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
       propertyPath: destination
       value: 
       objectReference: {fileID: 8967222472067927415}
@@ -25284,6 +25308,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1655118505404706294}
     m_Modifications:
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 5073393004984964732, guid: 5bda7154d40e8294cbb71415d78030ec, type: 3}
+    - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
+      propertyPath: particle
+      value: 
+      objectReference: {fileID: 8000708592428606942, guid: 714ad19435c2975419c486fbd31fa90b, type: 3}
     - target: {fileID: -3088533146323948288, guid: 308d0e3ef9485294c8e39d3d90dec400, type: 3}
       propertyPath: destination
       value: 
