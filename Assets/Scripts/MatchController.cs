@@ -146,6 +146,10 @@ public class MatchController : MonoBehaviour
                 }
             }
         }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ToMainMenu();
+        }
     }
 
     private void PlayerConnected(int i)
